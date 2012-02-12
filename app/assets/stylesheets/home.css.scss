@@ -1,3 +1,35 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.menu_facebook {
+  padding: 9px 0 0;
+}
+.cover_image {
+  width:849px;
+  height:446px;
+  background-color:#ffffee;
+  border: 1px solid #999999;
+}
+
+.profile_pic_wrapper {
+  width:131px;
+  height:131px;
+  border: 1px solid #999999;
+  margin-left: 23px;
+  margin-top: -80px;
+  
+  .profile_pic {
+    width:123px;
+    height:123px;
+    background-color: white;
+    border: 4px solid #FFFFFF;
+    border-radius: 2px 2px 2px 2px;
+
+    .image {
+      width: 123px;
+      height: 123px;
+      background-color: #0099bb;
+    }
+  }  
+}

@@ -34,6 +34,14 @@
               %li= link_to "Gallery", "/path1"
               %li= link_to "Most Popular", "/path2"
               %li= link_to "Help", "/path3"
+            %ul.nav.pull-right
+              %li
+                .menu_facebook
+                  - if user_signed_in?
+                    = "Hello #{current_user.email}"
+                    = link_to 'Sign out', destroy_user_session_path, :method => :delete
+                  - else
+                    = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)
 
     .container
 
@@ -54,8 +62,4 @@
     
       %footer
         %p &copy; Company 2012
-    /
-      Le javascript
-      \==================================================
-    / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
