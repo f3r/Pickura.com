@@ -3,7 +3,7 @@
 .profile_pic_wrapper
   .profile_pic
     .image
-      profile_pic
+      = image_tag current_user.avatar.url, :id => 'user_avatar'
 
 
 .form-actions
