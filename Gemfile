@@ -20,8 +20,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -42,6 +40,13 @@ gem "omniauth-facebook"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
-gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem 'twitter-bootstrap-rails'
 gem 'carrierwave'
+
+group :development, :test do
+  gem "rspec-rails", ">= 2.0.1"
+  # Debugger, for installation see: http://pastie.org/3293194
+  gem 'linecache19', '0.5.13'
+  gem 'ruby-debug-base19', '0.11.26'
+  gem "ruby-debug19", :require => 'ruby-debug'
+end
