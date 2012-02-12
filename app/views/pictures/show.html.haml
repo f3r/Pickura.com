@@ -1,10 +1,12 @@
-.cover_image
-  = image_tag @picture.picture.url, :id => 'user_image'
+.cover_image#screen
+  = image_tag @picture.picture.url, :id => 'user_image', :style => "z-index:10"
+  
 .profile_pic_wrapper
   .profile_pic
     .image
       = image_tag current_user.avatar.url, :id => 'user_avatar'
 
+.sidebar_images
 
 .form-actions
   = link_to "Back", pictures_path, :class => 'btn'

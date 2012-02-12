@@ -18,18 +18,20 @@
   border: 1px solid #999999;
   margin-left: 23px;
   margin-top: -80px;
+  margin-bottom: 40px;
+  z-index:100;
+  position:relative;
   
   .profile_pic {
     width:123px;
     height:123px;
-    background-color: white;
+//    background-color: white;
     border: 4px solid #FFFFFF;
     border-radius: 2px 2px 2px 2px;
     z-index: 20;
     .image {
       width: 123px;
       height: 123px;
-      /*background-color: #0099bb;*/
     }
   }  
 }

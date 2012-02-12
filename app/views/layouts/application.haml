@@ -49,17 +49,26 @@
         .row
           .span9
             = yield
-          - if false
-            .span1 &nbsp;
-            .span3
-              .well.sidebar-nav
-                %h3 Sidebar
-                %ul.nav.nav-list
-                  %li.nav-header Sidebar
-                  %li= link_to "Link 1", "/path1"
-                  %li= link_to "Link 2", "/path2"
-                  %li= link_to "Link 3", "/path3"
+          .span3
+            .well.sidebar-nav{:style => "height:362px;"}
+              %h3{:style => "text-align:center; margin-top: -15px; margin-bottom: 10px"} Backgrounds
+              %ul.nav.nav-list{:style => "overflow:scroll;height:362px;"}
+                %li#fer= link_to (image_tag "bob-marley_small.png"), '#'
+                %li= image_tag "manchester-united_small.png"
+                %li= image_tag "bob-marley_small.png"
+                %li= image_tag "manchester-united_small.png"
+                %li= image_tag "bob-marley_small.png"
+                %li= image_tag "manchester-united_small.png"
+                %li= image_tag "bob-marley_small.png"
+                %li= image_tag "manchester-united_small.png"
+                %li= image_tag "bob-marley_small.png"
+                %li= image_tag "manchester-united_small.png"
     
       %footer
         %p &copy; Company 2012
     = javascript_include_tag "application"
+
+:javascript
+  $('#fer').click(function() {
+    $('#user_image').attr("src","http://localhost:3000/assets/bob-marley.jpg");
+  });
