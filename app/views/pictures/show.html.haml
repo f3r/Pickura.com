@@ -1,5 +1,10 @@
-%label{:class => "label"}= t("activerecord.attributes.picture.title", :default => t("activerecord.labels.title", :default => "Title")) + ":"
-%p= @picture.title
+.cover_image
+  = image_tag @picture.picture.url, :id => 'user_image'
+.profile_pic_wrapper
+  .profile_pic
+    .image
+      profile_pic
+
 
 .form-actions
   = link_to "Back", pictures_path, :class => 'btn'
