@@ -31,7 +31,6 @@
           %a.brand{:href => "#"}My Timeline Covers
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Sign in", user_omniauth_authorize_path(:facebook)
               %li= link_to "Gallery", "/path1"
               %li= link_to "Most Popular", "/path2"
               %li= link_to "Help", "/path3"
@@ -42,15 +41,16 @@
         .row
           .span9
             = yield
-          .span1 &nbsp;
-          .span3
-            .well.sidebar-nav
-              %h3 Sidebar
-              %ul.nav.nav-list
-                %li.nav-header Sidebar
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
-                %li= link_to "Link 3", "/path3"
+          - if false
+            .span1 &nbsp;
+            .span3
+              .well.sidebar-nav
+                %h3 Sidebar
+                %ul.nav.nav-list
+                  %li.nav-header Sidebar
+                  %li= link_to "Link 1", "/path1"
+                  %li= link_to "Link 2", "/path2"
+                  %li= link_to "Link 3", "/path3"
     
       %footer
         %p &copy; Company 2012
