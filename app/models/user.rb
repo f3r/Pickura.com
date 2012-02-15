@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
       ) 
     end
   end
+  
+  def current_picture
+    Picture.first
+  end
 end
