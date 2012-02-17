@@ -6,7 +6,7 @@
     = csrf_meta_tags
     /[if lt IE 9]
       = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
-    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag "application"
     :css
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -36,12 +36,8 @@
                     = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)
 
     .container
-
       .content
         .row
           = content_for?(:main) ? yield(:main) : yield
-    
-      %footer
-        %p &copy; Company 2012
-  
+      
     = javascript_include_tag "application"

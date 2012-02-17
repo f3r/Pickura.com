@@ -1,23 +1,16 @@
-%h1 Listing photos
+.title Listing photos
+.new_photo= link_to "Add Photo", new_photo_path, {:class => "btn btn-primary"}
 
-%table
-  %tr
-    %th Name
-    %th Image
-    %th Tags
-    %th
-    %th
-    %th
-    
+%ul.photo_list
   - @photos.each do |photo|
-    %tr
-      %td= photo.name
-      %td= image_tag photo.source, :width => "100"
-      %td= photo.tag_list      
-      %td= link_to 'Show', photo
-      %td= link_to 'Edit', edit_photo_path(photo)
-      %td= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete
+    %li.photo
+      .img=  image_tag photo.source
+      .name= best_in_place photo, :name
+      .tags= best_in_place photo, :tag_list, {:nil => "click to add tags"}
+      .delete= link_to '(Delete)', photo, :confirm => 'Are you sure?', :method => :delete
 
 %br
-
-= link_to 'New photo', new_photo_path
+.flickr_pagination
+  = will_paginate @photos, :container => false
+  .page_info
+    = page_entries_info @posts
