@@ -1,10 +1,12 @@
 class PhotoUploader < CarrierWave::Uploader::Base
 
+  # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
+
+  # Choose what kind of storage to use for this uploader:
   storage :fog
 
-  # Override the directory where uploaded files will be stored.
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{model.id}"
   end
 end

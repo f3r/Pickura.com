@@ -13,6 +13,10 @@
   .field
     = f.label :source
     = f.file_field :source
+    
+  .field
+    = f.label :Tags
+    = f.text_field :tag_list
 
   .actions
     = f.submit 'Save'

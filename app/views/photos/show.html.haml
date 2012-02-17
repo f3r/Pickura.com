@@ -4,6 +4,14 @@
   %b Name:
   = @photo.name
 
+%p
+  %b Image:
+  = image_tag @photo.source
+
+%p
+  %b Tags
+  = @photo.tag_list
+
 = link_to 'Edit', edit_photo_path(@photo)
 \|
 = link_to 'Back', photos_path
