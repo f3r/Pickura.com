@@ -41,8 +41,11 @@ gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
 gem 'twitter-bootstrap-rails'
+gem 'rmagick'
 gem 'carrierwave'
+gem 'fog'
 gem 'pg'
+gem 'acts-as-taggable-on', '~> 2.2.2'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.1"
