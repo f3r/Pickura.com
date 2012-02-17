@@ -1,5 +1,5 @@
 Covers::Application.routes.draw do
-  resources :images
+  resources :photos
   resources :pictures
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

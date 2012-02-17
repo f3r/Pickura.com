@@ -1,0 +1,18 @@
+= form_for @photo, :html => {:multipart => true} do |f|
+  -if @photo.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being saved:"
+      %ul
+        - @photo.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+    
+  .field
+    = f.label :source
+    = f.file_field :source
+
+  .actions
+    = f.submit 'Save'

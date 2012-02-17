@@ -1,0 +1,19 @@
+%h1 Listing photos
+
+%table
+  %tr
+    %th Name
+    %th Image
+    %th
+    %th
+
+  - @photos.each do |photo|
+    %tr
+      %td= photo.name
+      %td= link_to 'Show', photo
+      %td= link_to 'Edit', edit_photo_path(photo)
+      %td= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New photo', new_photo_path
