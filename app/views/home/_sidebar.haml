@@ -1,0 +1,5 @@
+.well.sidebar-nav{:style => "height:362px;"}
+  %h3{:style => "text-align:center; margin-top: -15px; margin-bottom: 10px"} Backgrounds
+  %ul#pics.nav.nav-list{:style => "overflow:scroll;height:362px;"}
+    - @pictures.each do |pic|
+      %li.pic= link_to image_tag(pic.picture.url), '#', 'data-target' => pic.picture.url

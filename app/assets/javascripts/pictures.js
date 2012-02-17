@@ -1,1 +1,1 @@
-$("#user_image").draggable();
+//$("#user_image").draggable();

@@ -1,9 +1,0 @@
-.clearfix
-  = f.label :title, t("activerecord.attributes.picture.title", :default => "Title"), :class => :label
-  .input
-    = f.text_field :title, :class => 'text_field'
-
-.form-actions
-  %button{:class => "btn primary", :type => "submit"} Save
-  or
-  = link_to "Cancel", pictures_path

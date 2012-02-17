@@ -1,0 +1,7 @@
+- content_for(:main) do
+  .span9
+    = yield
+  .span3
+    = render :partial => 'home/sidebar'
+
+= render :template => 'layouts/application'
