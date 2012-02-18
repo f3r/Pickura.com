@@ -21,7 +21,7 @@ gem 'will_paginate', '~> 3.0'         # Pagination
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.1"
-  gem "thin"                          # To avoid: WARN  Could not determine content-length of response body...
+#  gem "thin"                          # To avoid: WARN  Could not determine content-length of response body...
   gem 'linecache19', '0.5.13'         # Debugger, for installation see: http://pastie.org/3293194
   gem 'ruby-debug-base19', '0.11.26'
   gem "ruby-debug19", :require => 'ruby-debug'
