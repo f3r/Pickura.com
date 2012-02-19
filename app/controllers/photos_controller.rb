@@ -58,6 +58,15 @@ class PhotosController < ApplicationController
       end
     end
   end
+  
+  def watermark
+    @photo = Photo.find(params[:id])
+    if @photo.move_watermark(params[:corner])
+      redirect_to @photo, notice: 'Photo successfully updated.'
+    else
+      redirect_to @photo, notice: 'Error' 
+    end
+  end
 
   def destroy
     @photo = Photo.find(params[:id])

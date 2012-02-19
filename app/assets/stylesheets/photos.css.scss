@@ -47,7 +47,19 @@
       margin-top: 50px;
       font-style: italic;
     }
-
+	.watermark {
+	  display: inline-block;
+      vertical-align:middle;
+      position: absolute;
+      margin-top: 12px;
+	  margin-left: 200px;
+      font-style: italic;
+	  label {
+	    display: inline;
+	    font-weight: bold;
+	    margin-right: 5px;
+	  }
+	}
     .delete {
       display: inline-table;
       right: 63px;
@@ -92,3 +104,9 @@
     margin-right: 1em; }
   .flickr_pagination .next_page {
     margin-left: 1em; }
+
+.content .button_to {
+  display: inline;
+  div { display: inline; }
+  input { width: 100px; }
+}

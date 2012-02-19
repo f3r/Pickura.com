@@ -6,11 +6,25 @@
 
 %p
   %b Image:
-  = image_tag @photo.source
+  = image_tag @photo.source.branded
 
 %p
   %b Tags
   = @photo.tag_list
+  
+%p
+  %b Watermark
+.waterMarkPosition
+  - if false 
+    = form_for @photo, :url => watermark_photo_path, :method => :post do |f|
+      = f.select :watermark_position, watermark_positions_options
+      = f.submit :move
+.topButtons
+  = button_to 'TopLeft', watermark_photo_path(:corner => :north_west), :method => :post
+  = button_to 'TopRight', watermark_photo_path(:corner => :north_east), :method => :post
+.bottomButtons
+  = button_to 'BottomLeft', watermark_photo_path(:corner => :south_west), :method => :post
+  = button_to 'BottomRight', watermark_photo_path(:corner => :south_east), :method => :post
 
 = link_to 'Edit', edit_photo_path(@photo)
 \|

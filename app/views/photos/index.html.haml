@@ -5,10 +5,13 @@
   - @photos.each do |photo|
     %li.photo
       .img
-        %a{:href => "#{photo.source}", :rel => "prettyPhoto[pp_gal]", :title => "#{photo.name}"}
+        = link_to photo.source.branded.url, :rel => "prettyPhoto[pp_gal]", :title => "#{photo.name}" do
           = image_tag photo.source.thumb
       .name= best_in_place photo, :name
       .tags= best_in_place photo, :tag_list, {:nil => "click to add tags"}
+      .watermark
+        = label :photo_watermark_position, 'Watermark:'
+        = best_in_place photo, :watermark_position, :type => :select, :collection => watermark_positions_options
       .delete= link_to '(Delete)', photo, :confirm => 'Are you sure?', :method => :delete
 
 %br
