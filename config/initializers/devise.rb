@@ -209,7 +209,12 @@ Devise.setup do |config|
 
   # ==> OmniAuth
   # require "omniauth-facebook"
-  config.omniauth :facebook, "210974742333678", "d30ea46bb1474dcba4e447f9288ee107"
+  if Rails.env.production?
+    config.omniauth :facebook, "331426256899594", "dfe2b9e4996748a26d708a313c47ab6d"
+  else
+    config.omniauth :facebook, "210974742333678", "d30ea46bb1474dcba4e447f9288ee107"
+  end  
+  
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
