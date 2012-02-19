@@ -15,6 +15,6 @@ class HomeController < ApplicationController
   
   def load_pictures
     @picture = current_user.current_picture
-    @pictures = Picture.all
+    @photos = Photo.limit(10)
   end
 end

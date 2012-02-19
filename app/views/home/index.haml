@@ -1,5 +1,5 @@
 .cover_image#screen
-  = image_tag @picture.picture.url, :id => 'user_image', :style => "z-index:10"
+  = image_tag @photos.first.source.url, :id => 'user_image', :style => "z-index:10"
   
 .profile_pic_wrapper
   .profile_pic
