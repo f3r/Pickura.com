@@ -9,7 +9,6 @@ class Photo < ActiveRecord::Base
   
   def move_watermark(corner = nil)
     self.watermark_position = corner
-    self.source.recreate_versions!
     self.save
   end
   
