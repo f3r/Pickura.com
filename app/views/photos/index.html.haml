@@ -6,7 +6,7 @@
     %li.photo
       .img
         %a{:href => "#{photo.source}", :rel => "prettyPhoto[pp_gal]", :title => "#{photo.name}"}
-          = image_tag photo.source
+          = image_tag photo.source.thumb
       .name= best_in_place photo, :name
       .tags= best_in_place photo, :tag_list, {:nil => "click to add tags"}
       .delete= link_to '(Delete)', photo, :confirm => 'Are you sure?', :method => :delete

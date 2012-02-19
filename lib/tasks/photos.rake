@@ -14,4 +14,11 @@ namespace :pictures do
       count += 1
     end  
   end
+  
+  desc "Recreate version"
+  task :recreate_versions => :environment do
+    Photo.all.each do |photo|
+      photo.source.recreate_versions!
+    end
+  end
 end
