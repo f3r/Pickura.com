@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     end
   end
   
-  def current_picture
-    Picture.first
+  def current_photo
+    Photo.first
   end
 end

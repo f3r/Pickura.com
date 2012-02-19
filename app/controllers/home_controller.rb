@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if user_signed_in?
-      load_pictures
+      load_photos
       render 'index', :layout => 'sidebar'
     else
       render 'welcome'    
@@ -13,8 +13,7 @@ class HomeController < ApplicationController
   
   protected
   
-  def load_pictures
-    @picture = current_user.current_picture
+  def load_photos
     @photos = Photo.limit(10)
   end
 end

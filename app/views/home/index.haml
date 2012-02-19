@@ -1,5 +1,5 @@
 .cover_image#screen
-  = image_tag @photos.first.source.url, :id => 'user_image', :style => "z-index:10"
+  = image_tag current_user.current_photo.source.url, :id => 'user_image', :style => "z-index:10"
   
 .profile_pic_wrapper
   .profile_pic
@@ -10,4 +10,4 @@
 
 .form-actions
   = link_to "Save", root_path, :class => 'btn'
-  = link_to "Customize", root_path, :class => 'btn'
+  = link_to "Customize", editor_path, :class => 'btn'
