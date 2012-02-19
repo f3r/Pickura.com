@@ -47,24 +47,26 @@
       margin-top: 50px;
       font-style: italic;
     }
-	.watermark {
-	  display: inline-block;
-      vertical-align:middle;
-      position: absolute;
-      margin-top: 12px;
-	  margin-left: 200px;
-      font-style: italic;
-	  label {
-	    display: inline;
-	    font-weight: bold;
-	    margin-right: 5px;
-	  }
-	}
-    .delete {
-      display: inline-table;
-      right: 63px;
+  	.watermark {
+      display: inline;
       float: right;
-      vertical-align:top;
+      font-style: italic;
+      margin-top: 78px;
+      right: 63px;
+      vertical-align: bottom;
+  	  label {
+  	    display: inline;
+  	    font-weight: bold;
+  	    margin-right: 5px;
+  	  }
+	  }
+    .delete {
+      display: table;
+      float: right;
+      position: absolute;
+      right: 10px;
+      top: 4px;
+      vertical-align: top;
       &:hover {
        background-color: black; 
        color: white;
