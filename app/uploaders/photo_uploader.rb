@@ -1,9 +1,6 @@
 class PhotoUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
-
-  # Choose what kind of storage to use for this uploader:
   storage :fog
   
   version :thumb do

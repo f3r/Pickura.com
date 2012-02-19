@@ -1,12 +1,6 @@
-# encoding: utf-8
-
 class AvatarUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
-
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  storage :fog  
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{model.id}"
+  end
 end
