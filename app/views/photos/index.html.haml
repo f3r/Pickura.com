@@ -9,6 +9,8 @@
           = image_tag photo.source.thumb
       .name= best_in_place photo, :name
       .tags= best_in_place photo, :tag_list, {:nil => "click to add tags"}
+      .category= best_in_place photo, :category_list, {:nil => "click to add categories"}
+      
       .watermark
         = label :photo_watermark_position, 'Watermark:'
         = best_in_place photo, :watermark_position, :type => :select, :collection => watermark_positions_options

@@ -1,7 +1,8 @@
 class Photo < ActiveRecord::Base
   mount_uploader :source, PhotoUploader
   acts_as_taggable
-  
+  acts_as_taggable_on :categories
+    
   before_validation :defatult_watermark
   before_save :recreate_watermark
     
