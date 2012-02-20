@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
 
   def index
-    @photos = Photo.paginate(:page => params[:page], :per_page => 50)
+    @photos = Photo.paginate(:page => params[:page], :per_page => 50).order('id ASC')
 
     respond_to do |format|
       format.html # index.html.erb
