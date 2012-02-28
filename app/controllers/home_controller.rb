@@ -4,6 +4,7 @@ class HomeController < ApplicationController
       load_photos
       render 'index', :layout => 'sidebar'
     else
+      @photos = Photo.where(:id => 1315..1325)
       render 'welcome'    
     end
   end

@@ -1,5 +1,5 @@
 .title Listing photos
-.new_photo= link_to "Add Photo", new_photo_path, {:class => "btn btn-primary"}
+.new_photo_link= link_to "Add Photo", new_photo_path, {:class => "btn btn-primary"}
 
 %ul.photo_list
   - @photos.each do |photo|

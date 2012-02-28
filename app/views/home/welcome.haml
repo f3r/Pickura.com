@@ -1,1 +1,8 @@
-%h3 Welcome
+%div{:style => "width:700px;margin:40px auto"}
+  .slider-wrapper.theme-default.controlnav-thumbs
+    .ribbon
+    #nivoslider.nivoSlider{:style => "width:700px;height:300px;"}
+      - @photos.each do |photo|
+        %img{:src => photo.source.url, :rel => photo.source.thumb.url, :alt => photo.name}
+        
+= image_tag "fb_login_big.png"

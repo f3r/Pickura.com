@@ -34,6 +34,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(params[:photo])
 
+ 
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo successfully created.' }

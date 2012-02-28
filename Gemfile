@@ -14,6 +14,7 @@ gem 'twitter-bootstrap-rails'
 gem 'carrierwave'                     # Image uploading
 gem 'fog'                             # Image uploading to S3
 gem 'rmagick'                         # Image processing
+#gem 'mini_magick'
 
 gem 'acts-as-taggable-on', '~> 2.2.2' # handle tags for photos
 gem 'best_in_place'                   # inline editing for photo admin

@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require twitter/bootstrap
+ *= require_tree .
+*/
+
+body {
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+#stickers .sticker {
+  width: 80px;
+}
+
+.menu_facebook {
+  padding: 9px 0 0;
+}
+
+
+#canvas {
+  position: relative;
+  overflow: hidden;
+  width: 851px;
+  margin: 0 auto;
+
+  .sticker {
+    position: absolute;
+    width: 80px;
+    z-index: 30;
+  }
+  
+  /* Cover Image in Background */
+  .cover_image {
+    width:849px;
+    height:314px;
+    background-color:#ffffee;
+    border: 1px solid #999999;
+  }
+  
+  /* Wrapper for the profile pic */
+  .profile_pic_wrapper {
+    width:131px;
+    height:131px;
+    border: 1px solid #999999;
+    margin-left: 23px;
+    margin-top: -80px;
+    margin-bottom: 40px;
+    z-index:100;
+    position:relative;
+
+    /* Profile pic image */
+    .profile_pic {
+      width:123px;
+      height:123px;
+      overflow: hidden;
+      border: 4px solid #FFFFFF;
+      border-radius: 2px 2px 2px 2px;
+      z-index: 20;
+
+      .image {
+        width: 200px;
+        height: 126px;
+        margin-left:-37px;
+      }
+    }  
+  }
+}
