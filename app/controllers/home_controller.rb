@@ -5,10 +5,10 @@ class HomeController < ApplicationController
       render 'index', :layout => 'sidebar'
     else
       @photos = []
-      (1..10).each {|i|
+      (1..11).each {|i|
         @photos << "https://s3.amazonaws.com/pickura/static/branded#{i}.jpg"
       }
-      render 'welcome', layout => 'home'
+      render 'welcome'
     end
   end
 
