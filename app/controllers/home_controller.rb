@@ -4,8 +4,11 @@ class HomeController < ApplicationController
       load_photos
       render 'index', :layout => 'sidebar'
     else
-      @photos = Photo.where(:id => 1315..1325)
-      render 'welcome'    
+      @photos = []
+      (1..10).each {|i|
+        @photos << "https://s3.amazonaws.com/pickura/static/branded#{i}.jpg"
+      }
+      render 'welcome', layout => 'home'
     end
   end
 

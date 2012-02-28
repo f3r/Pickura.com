@@ -78,12 +78,12 @@ Author URI: http://dev7studios.com
 	margin-bottom: 100px; /* Tweak this depending on thumbnail size */
 }
 .theme-default.controlnav-thumbs .nivo-controlNav {
-	bottom: -70px; /* Tweak this depending on slider height */
+	bottom: -71px; /* Tweak this depending on slider height */
 	left: 0;
-	margin-left: 0;
+	margin-left: 16px;
 	width: 100%;
-	top: 309px;
-	overflow-y: scroll;
+	top: 274px;
+	overflow-y: hidden;
 	overflow-x: hidden;
 }
 .theme-default.controlnav-thumbs .nivo-controlNav a {

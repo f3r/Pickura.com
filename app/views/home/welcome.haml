@@ -1,8 +1,13 @@
-%div{:style => "width:700px;margin:40px auto"}
+.title_homepage
+  Timeline isn't as bad as it seems ;)
+
+%div{:style => "width:600px;margin:40px auto"}
   .slider-wrapper.theme-default.controlnav-thumbs
     .ribbon
-    #nivoslider.nivoSlider{:style => "width:700px;height:300px;"}
+    #nivoslider.nivoSlider{:style => "width:600px;height:264px;"}
       - @photos.each do |photo|
-        %img{:src => photo.source.url, :rel => photo.source.thumb.url, :alt => photo.name}
-        
-= image_tag "fb_login_big.png"
+        %img{:src => photo, :rel => photo} 
+        / #, :alt => photo.name}
+
+%div{:style => "text-align: center;"}
+  = image_tag "fb_login_big.png"
