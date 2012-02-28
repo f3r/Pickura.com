@@ -19,7 +19,7 @@ class Photo < ActiveRecord::Base
   end
   
   def recreate_watermark
-    if self.watermark_position_changed?
+    if !self.new_record? && self.watermark_position_changed?
       self.source.recreate_versions!
     end
   end
