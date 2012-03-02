@@ -23,11 +23,12 @@
               %li= link_to "Gallery", "/path1"
               %li= link_to "Most Popular", "/path2"
               %li= link_to "Help", "/path3"
-            %ul.nav.pull-right
-              - if user_signed_in?
+            - if user_signed_in?
+              %ul.nav.pull-right
                 %li= link_to "Hello #{current_user.email}", "/profile", :style => "color:#555"
                 %li= link_to 'Sign out', destroy_user_session_path, :method => :delete, :style => "font-weight:bold;"
-              - else
+            - elsif !@current_action == "index" && !@current_controller =+ "home"
+              %ul.nav.pull-right
                 %li
                   .menu_facebook
                     = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)

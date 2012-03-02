@@ -83,7 +83,7 @@ Author URI: http://dev7studios.com
 	margin-left: 16px;
 	width: 100%;
 	top: 274px;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	overflow-x: hidden;
 }
 .theme-default.controlnav-thumbs .nivo-controlNav a {
