@@ -5,3 +5,15 @@
 body {
   background-color: black;
 }
+
+.main_wrapper {
+  width:600px;
+  margin:40px auto
+}
+
+.sign_in_button {
+  text-align: center;
+  a img {
+    margin-top: 65px;
+  }
+}

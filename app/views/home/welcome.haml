@@ -1,4 +1,4 @@
-%div{:style => "width:600px;margin:40px auto"}
+.main_wrapper
   .slider-wrapper.theme-default.controlnav-thumbs
     .ribbon
     #nivoslider.nivoSlider{:style => "width:600px;height:264px;"}
@@ -9,8 +9,8 @@
 .title_homepage
   Timeline isn't as bad as it seems ;)
 
-%div{:style => "text-align: center;"}
-  = link_to image_tag("fb_login_big.png", :style => "margin-top: 65px;"), user_omniauth_authorize_path(:facebook)
+.sign_in_button
+  = link_to image_tag("fb_login_big.png"), user_omniauth_authorize_path(:facebook)
   
 .title_homepage_bottom
   to create your own cover
