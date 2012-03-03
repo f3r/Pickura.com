@@ -10,5 +10,20 @@
       
 
   .form-actions
-    = link_to 'Download', download_cover_path(@cover), :id => 'download_button', :class => 'btn btn-primary btn-large', 'data-loading-text' => 'Downloading...', :method => :post
-    = link_to 'Upload to Facebook', upload_cover_url, :id => 'upload_button', :class => 'btn btn-primary btn-large', 'data-loading-text' => 'Uploading...', 'data-popup' => true, 'data-dialog-name' => 'Uploading'
+    = link_to 'Download', download_cover_url, :id => 'download_button', :class => 'btn btn-primary btn-large', 'data-loading-text' => 'Downloading...', 'data-popup' => true, 'data-dialog-name' => 'Downloading'
+    = link_to 'Upload', '#upload_modal', :id => 'upload_button', :class => 'btn btn-primary btn-large', 'data-loading-text' => 'Uploading...', 'data-toggle' => 'modal'
+    
+#upload_modal.modal{:style => 'display: none'}
+  .modal-header
+    %a.close{'data-dismiss' => 'modal'} x
+    %h3= 'Upload'
+  .modal-body
+    .step1
+      Uploading...
+      Please wait, or something like that
+      = link_to 'Upload', upload_cover_path(@cover), :class => 'trigger', :remote => true, :style => 'display:none'
+    .step2
+      Uploaded
+      Instructions
+      Social links
+  .modal-footer

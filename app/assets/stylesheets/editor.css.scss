@@ -7,3 +7,19 @@
     width: 180px;
   }
 }
+
+#upload_modal {
+  .step2 {
+    display: none;
+  }
+}
+
+#upload_modal.uploaded {
+  .step1 {
+    display: none;
+  }
+  
+  .step2 {
+    display: block;
+  }
+}

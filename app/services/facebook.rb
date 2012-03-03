@@ -1,4 +1,6 @@
 class Facebook
+  ALBUM_NAME = 'Pickura.com'
+
   def self.upload_cover(cover, user)
    @me = FbGraph::User.me(user.token)
    album = self.find_or_create_album
@@ -11,7 +13,13 @@ class Facebook
   end
 
   def self.find_or_create_album
-    #TODO: Find or create a pickura.com album
-    album = @me.albums.last
+    album = @me.albums.find{|a| a.name == ALBUM_NAME}
+    unless album
+      #album = @me.albums.last
+      album = @me.album!(
+        :name => ALBUM_NAME
+      )
+    end
+    album
   end
 end

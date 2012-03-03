@@ -8,6 +8,14 @@ var Editor = {
   	$('#download_button, #upload_button').click(function(){
   	  $(this).button('loading');
   	});
+  	
+  	$('#upload_modal').on('hide', function () {
+      $('#upload_button').button('reset');
+    });
+    
+    $('#upload_modal').on('show', function () {
+      $('#upload_modal .trigger').click();
+    });
   },
   newSticker: function(src){
    console.log('clicky');

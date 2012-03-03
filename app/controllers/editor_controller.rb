@@ -12,7 +12,6 @@ class EditorController < ApplicationController
 
   def upload
     Facebook.upload_cover(@cover, current_user)
-    render :text => 'Uploaded'
   end
 
   def find_cover
