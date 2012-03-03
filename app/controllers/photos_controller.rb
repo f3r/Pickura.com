@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
 
-  layout 'admin', :except => [:gallery]
-  before_filter :security_check, :except => [:gallery]
+  layout 'admin', :except => [:gallery, :gallery_show]
+  before_filter :security_check, :except => [:gallery, :gallery_show]
   
   def index
     @photos = Photo.paginate(:page => params[:page], :per_page => 50).order('id ASC')
@@ -24,6 +24,16 @@ class PhotosController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @photos }
+    end
+  end
+
+  def gallery_show
+    @photo = Photo.find(params[:id])
+    @tags = Photo.tag_counts(:order => 'count desc', :at_least => '50')
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @photo }
     end
   end
 

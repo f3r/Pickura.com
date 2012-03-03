@@ -7,12 +7,11 @@ Covers::Application.routes.draw do
     end
   end
 
-  match 'gallery(/:tags)' => 'photos#gallery', :as => :gallery
-
-  match 'cover/:id/download' => 'editor#download', :as => :download_cover
-  match 'cover/:id/upload' => 'editor#upload', :as => :upload_cover
-
-  match 'editor/:id' => 'editor#show', :as => :editor
+  match 'gallery/:id-:slug'   => 'photos#gallery_show', :as => :gallery_show
+  match 'gallery(/:tags)'     => 'photos#gallery',      :as => :gallery
+  match 'cover/:id/download'  => 'editor#download',     :as => :download_cover
+  match 'cover/:id/upload'    => 'editor#upload',       :as => :upload_cover
+  match 'editor/:id'          => 'editor#show',         :as => :editor
 
   root :to => 'home#index'
 end

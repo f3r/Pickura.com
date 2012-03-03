@@ -1,0 +1,23 @@
+.row.span11.title_bar
+  .title Cover Photos
+
+.row-fluid.span10.offset1
+  .tag_list.span2
+    .tag_title Tag List
+    %ul.unstyled.tags
+      - @tags.each do |tag|
+        %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
+          = link_to "#{tag.name.capitalize}", gallery_path(tag.name), {:style => "margin-right:-25px; font-weight: bold"}
+          %span.label{:style => "float:right; margin-right:10px"}= tag.count
+
+  .gallery_list.span9
+    .row
+      .photo.span9
+        .name= @photo.name
+        .img
+          = link_to image_tag(@photo.source.branded), editor_path(@photo)
+        .fb_comments2
+          .fb-like{"data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
+    .row
+      .photo.span9
+        .fb-comments{"data-href"=>"#{seo_photo_path(@photo)}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
