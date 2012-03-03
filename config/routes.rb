@@ -7,12 +7,12 @@ Covers::Application.routes.draw do
       post :watermark
     end
   end
-  
+
   match 'gallery' => 'photos#gallery', :as => :gallery
-  
+
   resources :pictures
 
-  match 'editor' => 'editor#show', :as => :editor
-  
+  match 'editor/:id' => 'editor#show', :as => :editor
+
   root :to => 'home#index'
 end
