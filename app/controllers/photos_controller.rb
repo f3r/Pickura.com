@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
     else
       @photos = Photo.paginate(:page => params[:page], :per_page => 20).order('id ASC')
     end
-    @tags = Photo.tag_counts(:order => 'count desc', :at_least => 10)
+    @tags = Photo.tag_counts(:order => 'count desc', :at_least => '10')
     
     respond_to do |format|
       format.html # index.html.erb

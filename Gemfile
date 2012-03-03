@@ -17,7 +17,7 @@ gem 'fog'                             # Image uploading to S3
 gem 'rmagick'                         # Image processing
 #gem 'mini_magick'
 
-gem 'acts-as-taggable-on', '~> 2.2.2' # handle tags for photos
+gem 'acts-as-taggable-on',  :path => "vendor/gems/acts-as-taggable-on-2.2.2" # '~> 2.2.2'  # handle tags for photos
 gem 'best_in_place'                   # inline editing for photo admin
 gem 'will_paginate', '~> 3.0'         # Pagination
 
