@@ -1,0 +1,40 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title= content_for?(:title) ? yield(:title) : "Pickura.com"
+    %link{:rel =>"icon", :type => "image/png", :href => "https://s3.amazonaws.com/pickura/static/favicon.ico"}
+    = csrf_meta_tags
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+    = stylesheet_link_tag "application"
+
+  %body{:style => "background-color: white;"}
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.i-bar
+            %span.i-bar
+            %span.i-bar
+          %a.brand{:href => "/"}= image_tag("logo.png")
+          .container.nav-collapse
+            %ul.nav
+              %li= link_to "Gallery", gallery_path
+              %li= link_to "Most Popular", "/path2"
+              %li= link_to "Help", "/path3"
+            - if user_signed_in?
+              %ul.nav.pull-right
+                %li= link_to "Hello #{current_user.email}", "/profile", :style => "color:#555"
+                %li= link_to 'Sign out', destroy_user_session_path, :method => :delete, :style => "font-weight:bold;"
+            - elsif !@current_action == "index" && !@current_controller =+ "home"
+              %ul.nav.pull-right
+                %li
+                  .menu_facebook
+                    = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)
+
+    .container
+      .content
+        = content_for?(:main) ? yield(:main) : yield
+      
+    = javascript_include_tag "application"

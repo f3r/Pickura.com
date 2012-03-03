@@ -1,5 +1,8 @@
 class PhotosController < ApplicationController
 
+  layout 'admin', :except => [:gallery]
+  before_filter :security_check, :except => [:gallery]
+  
   def index
     @photos = Photo.paginate(:page => params[:page], :per_page => 50).order('id ASC')
 
@@ -91,6 +94,14 @@ class PhotosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to photos_url }
       format.json { head :no_content }
+    end
+  end
+  
+private
+  def security_check
+    if !user_signed_in? || !current_user.role
+      flash[:notice] = "Sorry, you are not authorized there :)"
+      redirect_to root_url
     end
   end
 end
