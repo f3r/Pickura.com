@@ -1,27 +1,28 @@
-.row.span12.title_bar
+.row.span10.title_bar
   .title Cover Photos
 
-/ - @photos.in_groups(2,false)  do |group|
-/   .row.span12.gallery_list
-/     -group.each do |photo|
+.row-fluid.span11
+  .tag_list.span2
+    .tag_title Tag List
+    %ul.unstyled.tags
+      - @tags.each do |tag|
+        - if @current_tag == tag.name
+          %li.tag.active
+            = link_to "#{tag} (#{tag.count})", gallery_path(tag.name), :style => "display:block;"
+        - else
+          %li.tag
+            = link_to "#{tag} (#{tag.count})", gallery_path(tag.name), :style => "display:block;"
 
-.row.span12
-  .span2.gallery_list
-    .photo Tag List
-
-  .span10.gallery_list
+  .gallery_list.span9
     - @photos.each do |photo|
       .row
-        .span9.photo
+        .photo.span9
           .name= photo.name
           .img
-            = link_to photo.source.branded.url, :rel => "prettyPhoto[pp_gal]", :title => "#{photo.name}" do
-              = image_tag photo.source.branded
-              / .tags= photo.tag_list
-              / .category= photo.category_list
+            = link_to image_tag(photo.source.branded), editor_path(photo)
 
-%br
-.flickr_pagination
-  = will_paginate @photos, :container => false
-  .page_info
-    = page_entries_info @posts
+.span10
+  .flickr_pagination
+    = will_paginate @photos, :container => false
+    .page_info
+      = page_entries_info @posts

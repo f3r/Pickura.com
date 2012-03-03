@@ -8,8 +8,8 @@ Covers::Application.routes.draw do
     end
   end
 
-  match 'gallery' => 'photos#gallery', :as => :gallery
-
+  match 'gallery(/:tags)' => 'photos#gallery', :as => :gallery
+  
   resources :pictures
 
   match 'editor/:id' => 'editor#show', :as => :editor

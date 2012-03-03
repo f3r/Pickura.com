@@ -10,8 +10,14 @@ class PhotosController < ApplicationController
   end
   
   def gallery
-    @photos = Photo.paginate(:page => params[:page], :per_page => 50).order('id ASC')
-
+    if !params[:tags].blank?
+      @photos = Photo.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 20).order('id ASC')
+      @current_tag = params[:tags]
+    else
+      @photos = Photo.paginate(:page => params[:page], :per_page => 20).order('id ASC')
+    end
+    @tags = Photo.tag_counts(:order => 'count desc', :at_least => 10)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @photos }
