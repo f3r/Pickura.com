@@ -13,8 +13,19 @@
   padding: 17px 0px 0px 0px;
 }
 
+.title_admin {
+  color: #222;
+  text-align:left;
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 20px;  
+  padding: 17px 0px 0px 0px;
+}
+
 .new_photo_link {
   float: right;
+  padding: 17px 0px 0px 0px;
+  text-align: right;
 }
 
 
@@ -30,7 +41,7 @@
     border: 1px solid silver;
     margin: 10px 0;
     position: relative;
-    height: 166px;
+    height: 96px;
     
     &:hover {
       background-color: #eee;
@@ -176,34 +187,103 @@
   text-align: center;
   margin-top: 20px;
   padding: 0.3em;
-  cursor: default; }
-  .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
-    padding: 0.2em 0.5em; }
-  .flickr_pagination .disabled {
-    color: #aaaaaa; }
-  .flickr_pagination .current {
+  cursor: default;
+
+  a, span, em {
+    padding: 0.2em 0.5em; 
+  }
+
+  .disabled {
+    color: #aaaaaa; 
+  }
+  
+  .current {
     font-style: normal;
     font-weight: bold;
-    color: #ff0084; }
-  .flickr_pagination a {
+    color: #ff0084;
+  }
+  
+  a {
     border: 1px solid #dddddd;
     color: white;
-    text-decoration: none; }
-    .flickr_pagination a:hover, .flickr_pagination a:focus {
+    text-decoration: none;
+
+    &:hover, &:focus {
       border-color: #003366;
       background: #0063dc;
-      color: white; }
-  .flickr_pagination .page_info {
+      color: white; 
+    }
+  }
+
+  .page_info {
     color: #aaaaaa;
     padding-top: 0.8em;
     margin-bottom:10px;
   }
-  .flickr_pagination .previous_page, .flickr_pagination .next_page {
-    border-width: 2px; }
-  .flickr_pagination .previous_page {
-    margin-right: 1em; }
-  .flickr_pagination .next_page {
-    margin-left: 1em; }
+
+  .previous_page, .next_page {
+    border-width: 2px;
+  }
+
+  .previous_page {
+    margin-right: 1em;
+  }
+
+  .next_page {
+    margin-left: 1em;
+  }
+}
+
+.flickr_pagination_admin {
+  text-align: center;
+  margin-top: 20px;
+  padding: 0.3em;
+  cursor: default;
+
+  a, span, em {
+    padding: 0.2em 0.5em; 
+  }
+
+  .disabled {
+    color: #aaaaaa; 
+  }
+  
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    color: #ff0084;
+  }
+  
+  a {
+    border: 1px solid #dddddd;
+    color: black;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      border-color: #003366;
+      background: #0063dc;
+      color: white; 
+    }
+  }
+
+  .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em;
+    margin-bottom:10px;
+  }
+
+  .previous_page, .next_page {
+    border-width: 2px;
+  }
+
+  .previous_page {
+    margin-right: 1em;
+  }
+
+  .next_page {
+    margin-left: 1em;
+  }
+}
 
 .content .button_to {
   display: inline;
