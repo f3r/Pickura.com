@@ -11,15 +11,7 @@ class EditorController < ApplicationController
   end
 
   def upload
-    me = FbGraph::User.me(current_user.token)
-    album = me.albums.last
-
-    file = open(@cover.source.branded.url)
-    album.photo!(
-      :access_token => current_user.token,
-      :source => file,
-      :message => 'Pickura.com - Cover Picture'
-    )
+    Facebook.upload_cover(@cover, current_user)
     render :text => 'Uploaded'
   end
 
