@@ -19,6 +19,15 @@ namespace :pictures do
   task :recreate_versions => :environment do
     Photo.all.each do |photo|
       photo.source.recreate_versions!
+      puts "[#{photo.id}] \"#{photo.name}\" recreated succesfully"
+    end
+  end
+  
+  desc "Recreate avatar files"
+  task :recreate_avatar => :environment do
+    User.all.each do |user|
+      user.avatar.recreate_versions!
+      puts "[#{user.id}] #{user.email}'s Avatar recreated succesfully"
     end
   end
 end
