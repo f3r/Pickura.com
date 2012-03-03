@@ -12,7 +12,7 @@
   });
   
   function remove_photo(id){
-    $(id).fadeOut(4000, function(){
+    $(id).fadeOut(500, function(){
         $(id).remove();
     });
   }
