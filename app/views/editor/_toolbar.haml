@@ -1,0 +1,5 @@
+.form-actions#stickers 
+  - Sticker.all.each do |sticker|
+    = image_tag sticker, :class => 'sticker'
+.well
+  = link_to "Save", '#', :class => 'btn'

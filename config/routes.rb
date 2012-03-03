@@ -1,5 +1,4 @@
 Covers::Application.routes.draw do
-
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :photos do
@@ -9,8 +8,9 @@ Covers::Application.routes.draw do
   end
 
   match 'gallery(/:tags)' => 'photos#gallery', :as => :gallery
-  
-  resources :pictures
+
+  match 'cover/:id/download' => 'editor#download', :as => :download_cover
+  match 'cover/:id/upload' => 'editor#upload', :as => :upload_cover
 
   match 'editor/:id' => 'editor#show', :as => :editor
 

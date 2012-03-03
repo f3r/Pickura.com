@@ -1,3 +1,0 @@
-%h4 Upload a picture
-= form_for Picture.new, :html => {:multipart => true} do |f|
-  = f.file_field :picture, :onchange => '$("#new_picture").submit()'

@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'pg'
 gem "devise"
 gem "omniauth-facebook"
+gem 'fb_graph'
 
 gem "haml", ">= 3.0.0"
 gem "haml-rails"

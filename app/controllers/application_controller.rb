@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
         @current_action = action_name
         @current_controller = controller_name
     end
+
+    def after_sign_in_path_for(user)
+      gallery_path
+    end
 end
