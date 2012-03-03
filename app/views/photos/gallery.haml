@@ -1,0 +1,27 @@
+.row.span12.title_bar
+  .title Cover Photos
+
+/ - @photos.in_groups(2,false)  do |group|
+/   .row.span12.gallery_list
+/     -group.each do |photo|
+
+.row.span12
+  .span2.gallery_list
+    .photo Tag List
+
+  .span10.gallery_list
+    - @photos.each do |photo|
+      .row
+        .span9.photo
+          .name= photo.name
+          .img
+            = link_to photo.source.branded.url, :rel => "prettyPhoto[pp_gal]", :title => "#{photo.name}" do
+              = image_tag photo.source.branded
+              / .tags= photo.tag_list
+              / .category= photo.category_list
+
+%br
+.flickr_pagination
+  = will_paginate @photos, :container => false
+  .page_info
+    = page_entries_info @posts

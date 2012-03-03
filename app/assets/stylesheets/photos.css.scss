@@ -1,9 +1,18 @@
+.title_bar {
+  background-color: #222;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
 .title {
   font-size: 34px;
-  font-style: bold;
-  display: inline-block;
+  font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
+  color: white;
+  padding: 17px 0px 0px 0px;
 }
+
 .new_photo_link {
   float: right;
 }
@@ -21,7 +30,8 @@
     border: 1px solid silver;
     margin: 10px 0;
     position: relative;
-    height: 96px;
+    height: 166px;
+    
     &:hover {
       background-color: #eee;
     }    
@@ -79,6 +89,52 @@
        color: white;
       }
     }  
+  }
+}
+
+.gallery_list {
+  list-style: none;
+
+  .photo {
+    padding: 7px;
+    background: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid silver;
+    margin: 10px 2px;
+    
+    &:hover {
+      background-color: #eee;
+    }    
+
+    .img {
+      display: inline-block;
+      img {
+        width: 868px;
+      }
+    }
+    .name {
+      font-size: 21px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      font-family: fantasy;
+      font-color: #444;
+    }
+    .tags {
+      display: inline-block;
+      vertical-align:middle;
+      position: absolute;
+      margin-top: 39px;
+      font-style: italic;
+    }
+	  .category {
+      display: inline-block;
+      vertical-align:middle;
+      position: absolute;
+      margin-top: 73px;
+      font-style: italic;	    
+	  }
   }
 }
 

@@ -8,6 +8,15 @@ class PhotosController < ApplicationController
       format.json { render json: @photos }
     end
   end
+  
+  def gallery
+    @photos = Photo.paginate(:page => params[:page], :per_page => 50).order('id ASC')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @photos }
+    end
+  end
 
   def show
     @photo = Photo.find(params[:id])

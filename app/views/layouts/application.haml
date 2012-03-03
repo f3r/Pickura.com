@@ -20,7 +20,7 @@
           %a.brand{:href => "/"}= image_tag("logo.png")
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Gallery", "/path1"
+              %li= link_to "Gallery", gallery_path
               %li= link_to "Most Popular", "/path2"
               %li= link_to "Help", "/path3"
             - if user_signed_in?
