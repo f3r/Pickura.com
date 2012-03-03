@@ -1,7 +1,12 @@
+/************************************************************************************************ 
+ * Styles for the Gallery
+ *************************************************************************************************/
+
 .title_bar {
   background-color: #222;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
+  border: 1px #555 solid;
 }
 
 .title {
@@ -11,96 +16,6 @@
   text-align: center;
   color: white;
   padding: 17px 0px 0px 0px;
-}
-
-.title_admin {
-  color: #222;
-  text-align:left;
-  font-size: 34px;
-  font-weight: bold;
-  margin-bottom: 20px;  
-  padding: 17px 0px 0px 0px;
-}
-
-.new_photo_link {
-  float: right;
-  padding: 17px 0px 0px 0px;
-  text-align: right;
-}
-
-
-.photo_list {
-  list-style: none;
-
-  .photo {
-    padding: 7px;
-    background: white;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    border: 1px solid silver;
-    margin: 10px 0;
-    position: relative;
-    height: 96px;
-    
-    &:hover {
-      background-color: #eee;
-    }    
-
-    .img {
-      display: inline-block;
-      width: 270px;
-      img {
-        width: 260px;
-      }
-    }
-    .name {
-      display: inline-block;
-      width: 500px;
-      font-size: 24px;
-      position: absolute;
-      margin-top: 4px;
-    }
-    .tags {
-      display: inline-block;
-      vertical-align:middle;
-      position: absolute;
-      margin-top: 39px;
-      font-style: italic;
-    }
-	  .category {
-      display: inline-block;
-      vertical-align:middle;
-      position: absolute;
-      margin-top: 73px;
-      font-style: italic;	    
-	  }
-  	.watermark {
-      display: inline;
-      float: right;
-      font-style: italic;
-      margin-top: 78px;
-      right: 63px;
-      vertical-align: bottom;
-  	  label {
-  	    display: inline;
-  	    font-weight: bold;
-  	    margin-right: 5px;
-  	  }
-	  }
-    .delete {
-      display: table;
-      float: right;
-      position: absolute;
-      right: 10px;
-      top: 4px;
-      vertical-align: top;
-      &:hover {
-       background-color: black; 
-       color: white;
-      }
-    }  
-  }
 }
 
 .gallery_list {
@@ -114,10 +29,10 @@
     border-radius: 10px;
     border: 1px solid silver;
     margin: 10px 2px;
-    
+
     &:hover {
-      background-color: #eee;
-    }    
+      background-color: #eef;
+    }
 
     .img {
       display: inline-block;
@@ -125,6 +40,7 @@
         width: 868px;
       }
     }
+    
     .name {
       font-size: 21px;
       margin-top: 4px;
@@ -132,11 +48,14 @@
       font-family: fantasy;
       font-color: #444;
     }
+    
+    .fb_comments {
+      height: 25px;
+    }
   }
 }
 
 .tag_list {
-//  padding: 7px;
   background: white;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -231,6 +150,98 @@
 
   .next_page {
     margin-left: 1em;
+  }
+}
+
+/************************************************************************************************ 
+ * Styles for the Admin (/photos)
+ *************************************************************************************************/
+.title_admin {
+ color: #222;
+ text-align:left;
+ font-size: 34px;
+ font-weight: bold;
+ margin-bottom: 20px;  
+ padding: 17px 0px 0px 0px;
+}
+
+.new_photo_link {
+ float: right;
+ padding: 17px 0px 0px 0px;
+ text-align: right;
+}
+ 
+.photo_list {
+  list-style: none;
+
+  .photo {
+    padding: 7px;
+    background: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid silver;
+    margin: 10px 0;
+    position: relative;
+    height: 96px;
+    
+    &:hover {
+      background-color: #eee;
+    }    
+
+    .img {
+      display: inline-block;
+      width: 270px;
+      img {
+        width: 260px;
+      }
+    }
+    .name {
+      display: inline-block;
+      width: 500px;
+      font-size: 24px;
+      position: absolute;
+      margin-top: 4px;
+    }
+    .tags {
+      display: inline-block;
+      vertical-align:middle;
+      position: absolute;
+      margin-top: 39px;
+      font-style: italic;
+    }
+	  .category {
+      display: inline-block;
+      vertical-align:middle;
+      position: absolute;
+      margin-top: 73px;
+      font-style: italic;	    
+	  }
+  	.watermark {
+      display: inline;
+      float: right;
+      font-style: italic;
+      margin-top: 78px;
+      right: 63px;
+      vertical-align: bottom;
+      label {
+        display: inline;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+    }
+    .delete {
+      display: table;
+      float: right;
+      position: absolute;
+      right: 10px;
+      top: 4px;
+      vertical-align: top;
+      &:hover {
+       background-color: black; 
+       color: white;
+      }
+    }
   }
 }
 

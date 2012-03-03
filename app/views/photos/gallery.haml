@@ -1,17 +1,14 @@
-.row.span10.title_bar
+.row.span11.title_bar
   .title Cover Photos
 
-.row-fluid.span11
+.row-fluid.span10.offset1
   .tag_list.span2
     .tag_title Tag List
     %ul.unstyled.tags
       - @tags.each do |tag|
-        - if @current_tag == tag.name
-          %li.tag.active
-            = link_to "#{tag} (#{tag.count})", gallery_path(tag.name), :style => "display:block;"
-        - else
-          %li.tag
-            = link_to "#{tag} (#{tag.count})", gallery_path(tag.name), :style => "display:block;"
+        %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
+          = link_to "#{tag.name.capitalize}", gallery_path(tag.name), {:style => "margin-right:-25px; font-weight: bold"}
+          %span.label{:style => "float:right; margin-right:10px"}= tag.count
 
   .gallery_list.span9
     - @photos.each do |photo|
@@ -20,6 +17,9 @@
           .name= photo.name
           .img
             = link_to image_tag(photo.source.branded), editor_path(photo)
+          .hide.fb_comments
+            .fb-like{"data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
+          
 
 .span10
   .flickr_pagination

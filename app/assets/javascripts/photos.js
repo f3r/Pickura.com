@@ -1,5 +1,11 @@
+
+/************************************************************************************************ 
+ * ADMIN PANEL
+ *************************************************************************************************/
+  // Inline editing
   $('.best_in_place').best_in_place();
   
+  // Slideshow
   $(document).ready(function(){
     $("a[rel^='prettyPhoto']").prettyPhoto({
       animation_speed: 'normal', /* fast/slow/normal */
@@ -11,8 +17,22 @@
     });
   });
   
+  // Admin function to delete an image
   function remove_photo(id){
     $(id).fadeOut(500, function(){
         $(id).remove();
     });
   }
+
+/************************************************************************************************ 
+ * GALLERY
+ *************************************************************************************************/
+  // Show facebook comments on hover
+  $('.photo').hover(
+    function() {
+      $(this).children(".fb_comments").show();
+    },
+    function() {
+      $(this).children(".fb_comments").hide();
+    }
+  )
