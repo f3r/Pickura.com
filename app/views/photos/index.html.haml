@@ -5,18 +5,18 @@
 .row
   %ul.photo_list
     - @photos.each do |photo|
-      %li.photo
+      %li.photo{:id => dom_id(photo)}
         .img
           = link_to photo.source.branded.url, :rel => "prettyPhoto[pp_gal]", :title => "#{photo.name}" do
             = image_tag photo.source.thumb
         .name= best_in_place photo, :name
         .tags= best_in_place photo, :tag_list, {:nil => "click to add tags"}
         .category= best_in_place photo, :category_list, {:nil => "click to add categories"}
-      
+
         .watermark
           = label :photo_watermark_position, 'Watermark:'
           = best_in_place photo, :watermark_position, :type => :select, :collection => watermark_positions_options
-        .delete= link_to '(Delete)', photo, :confirm => 'Are you sure?', :method => :delete
+        .delete= link_to '(Delete)',  photo_url(photo), {:remote => true, :method => :delete}
 
   %br
   .flickr_pagination_admin

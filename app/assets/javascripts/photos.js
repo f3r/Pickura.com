@@ -2,11 +2,17 @@
   
   $(document).ready(function(){
     $("a[rel^='prettyPhoto']").prettyPhoto({
-			animation_speed: 'normal', /* fast/slow/normal */
-			default_width: 851,
-			default_height: 315,
-			theme: 'facebook', /* pp_default, light_rounded / dark_rounded / light_square / dark_square / facebook */
-			slideshow:5000, 
-			autoplay_slideshow:true
+      animation_speed: 'normal', /* fast/slow/normal */
+      default_width: 851,
+      default_height: 315,
+      theme: 'facebook', /* pp_default, light_rounded / dark_rounded / light_square / dark_square / facebook */
+      slideshow:5000, 
+      autoplay_slideshow:true
     });
   });
+  
+  function remove_photo(id){
+    $(id).fadeOut(4000, function(){
+        $(id).remove();
+    });
+  }
