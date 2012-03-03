@@ -8,6 +8,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [260,96]
   end
   
+  version :preview do
+    process :watermark
+    process :resize_to_fill => [668,247]
+  end
+  
   version :branded do
     process :watermark
   end
