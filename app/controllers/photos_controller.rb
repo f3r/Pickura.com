@@ -98,7 +98,7 @@ class PhotosController < ApplicationController
   
 private
   def security_check
-    if !user_signed_in? || !current_user.role
+    if !user_signed_in? || !current_user.admin?
       flash[:notice] = "Sorry, you are not authorized there :)"
       redirect_to root_url
     end
