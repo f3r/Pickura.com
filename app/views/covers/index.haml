@@ -29,7 +29,6 @@
                 = link_to image_tag(photo.source.preview), seo_photo_path(photo)
               .hide.fb_comments
                 .fb-like{"data-href"=> "#{seo_photo_path(photo)}","data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
-                / .span{:style => "float:right"}= link_to "view image", seo_photo_path(photo)
 
         .row
           .flickr_pagination

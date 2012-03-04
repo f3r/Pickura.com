@@ -47,7 +47,16 @@
       font-family: fantasy;
       font-color: #444;
     }
-    
+
+    .nameShowPage {
+      font-size: 24px;
+      margin-top: 13px;
+      margin-bottom: 14px;
+      font-family: fantasy;
+      font-color: #444;
+      margin-left: 3px;
+    }
+        
     .fb_comments {
       height: 25px;
     }
@@ -55,6 +64,16 @@
     // For the show photo page (no more hiding)
     .fb_comments2 {
       height: 25px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-right: 48px;
+      text-align: right;
+    }
+    
+    .actions {
+      margin-top: 10px;
+      margin-bottom: 13px;
+      text-align: right;
     }
   }
 }
