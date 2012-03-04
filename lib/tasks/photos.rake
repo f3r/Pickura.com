@@ -19,11 +19,14 @@ namespace :pictures do
   task :recreate_versions => :environment do
     ini = ENV['from'].to_i || 1
     fin = ENV['to'].to_i   || Photo.count
-    
+
+    puts "Starting Photo recreation #{ini} to #{fin}"    
     Photo.where(:id => ini..fin).all.each do |photo|
       photo.source.recreate_versions!
       puts "[#{photo.id}] \"#{photo.name}\" recreated succesfully"
     end
+    puts "Finished Photo recreation of #{fin-ini+1} photos. Good job!"    
+
   end
   
   desc "Recreate avatar files"
