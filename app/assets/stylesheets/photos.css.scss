@@ -37,7 +37,7 @@
     .img {
       display: inline-block;
       img {
-        width: 868px;
+//        width: 868px;
       }
     }
     
@@ -88,9 +88,6 @@
 
     &.active {
       background-color: #002F47;
-//      background-image: url("/assets/filter-arrow.gif");
-//      background-repeat: no-repeat;
-//      background-position: right top;
       border: none;
       a {
         color: white;
