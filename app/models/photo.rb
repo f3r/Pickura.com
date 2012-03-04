@@ -7,6 +7,9 @@ class Photo < ActiveRecord::Base
   before_validation :default_watermark
   before_save :recreate_watermark
 
+  after_save :expire_cache
+  after_destroy :expire_cache
+
   WM_POSITIONS = {:south_east => 'Bottom Right', :north_east => 'Top Right', :north_west => 'Top Left', :south_west => 'Bottom Left'}
 
   # Returns a collection of tags (with memcached)
@@ -38,10 +41,16 @@ class Photo < ActiveRecord::Base
   def default_watermark
     self.watermark_position ||= 'south_east'
   end
-  
+
   def recreate_watermark
     if !self.new_record? && self.watermark_position_changed?
       self.source.recreate_versions!
     end
+  end
+
+  protected
+
+  def expire_cache
+    Rails.cache.clear
   end
 end
