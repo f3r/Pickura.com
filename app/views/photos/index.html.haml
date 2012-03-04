@@ -8,7 +8,7 @@
       %li.photo{:id => dom_id(photo)}
         .img
           = link_to photo.source.branded.url, :rel => "prettyPhoto[pp_gal]", :title => "#{photo.name}" do
-            = image_tag photo.source.thumb
+            = image_tag photo.source.thumb, :size => "260x96"
         .name= best_in_place photo, :name
         .tags= best_in_place photo, :tag_list, {:nil => "click to add tags"}
         .category= best_in_place photo, :category_list, {:nil => "click to add categories"}

@@ -5,17 +5,18 @@ gem 'pg'
 gem "devise"
 gem 'omniauth-facebook'
 gem 'fb_graph'
-
+gem 'dalli'                   # Memcached
 gem 'haml', '>= 3.0.0'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 
-gem 'carrierwave'                     # Image uploading
-gem 'fog'                             # Image uploading to S3
-gem 'rmagick'                         # Image processing
-gem 'best_in_place'                   # inline editing for photo admin
-gem 'will_paginate', '~> 3.0'         # Pagination
+gem 'carrierwave'               # Image uploading
+gem 'fog'                       # Image uploading to S3
+gem 'rmagick'                   # Image processing
+gem 'best_in_place'             # inline editing for photo admin
+gem 'will_paginate', '~> 3.0'   # Pagination
+
 gem 'acts-as-taggable-on',  :path => "vendor/gems/acts-as-taggable-on-2.2.2" # '~> 2.2.2'  # handle tags for photos
 
 group :development, :test do

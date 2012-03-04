@@ -196,28 +196,29 @@
     }    
 
     .img {
-      display: inline-block;
+      display: inline;
       width: 270px;
       img {
         width: 260px;
+        margin-right: 10px;
       }
     }
     .name {
-      display: inline-block;
+      display: inline;
       width: 500px;
       font-size: 24px;
       position: absolute;
       margin-top: 4px;
     }
     .tags {
-      display: inline-block;
+      display: inline;
       vertical-align:middle;
       position: absolute;
       margin-top: 39px;
       font-style: italic;
     }
 	  .category {
-      display: inline-block;
+      display: inline;
       vertical-align:middle;
       position: absolute;
       margin-top: 73px;

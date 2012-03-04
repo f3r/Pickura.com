@@ -2,24 +2,12 @@ class PhotosController < ApplicationController
 
   layout 'admin', :except => [:gallery, :gallery_show]
   before_filter :security_check, :except => [:gallery, :gallery_show]
-  
-  def index
-    @photos = Photo.paginate(:page => params[:page], :per_page => 50).order('id ASC')
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @photos }
-    end
-  end
-  
+
   def gallery
-    if !params[:tags].blank?
-      @photos = Photo.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 20).order('id ASC')
-      @current_tag = params[:tags]
-    else
-      @photos = Photo.paginate(:page => params[:page], :per_page => 20).order('id ASC')
-    end
-    @tags = Photo.tag_counts(:order => 'count desc', :at_least => '10')
+    @photos      = search(params[:page], params[:per_page], params[:tags])
+    @tags        = tagCounts()
+    @current_tag = params[:tags]
     
     respond_to do |format|
       format.html # index.html.erb
@@ -29,11 +17,23 @@ class PhotosController < ApplicationController
 
   def gallery_show
     @photo = Photo.find(params[:id])
-    @tags = Photo.tag_counts(:order => 'count desc', :at_least => '50')
+    @tags  = tagCounts()
 
     respond_to do |format|
       format.html
       format.json { render json: @photo }
+    end
+  end
+  
+  ##########################################################################################
+  # ADMIN CONTROLLER ACTIONS BELLOW
+  ##########################################################################################
+  def index
+    @photos = search(params[:page], 50)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @photos }
     end
   end
 
@@ -112,5 +112,25 @@ private
       flash[:notice] = "Sorry, you are not authorized there :)"
       redirect_to root_url
     end
+  end
+
+  # Returns a collection of photos (with memcached)
+  def search(page=1, per_page=20, tags=nil)
+    if tags.nil?
+      Rails.cache.fetch("photos__#{page}") {
+        Photo.paginate(:page => page, :per_page => per_page).order('id ASC')
+      }
+    else
+      Rails.cache.fetch("photosTags__#{tags}__#{page}") {
+        Photo.tagged_with(tags).paginate(:page => page, :per_page => per_page).order('id ASC')
+      }
+    end
+  end
+
+  # Returns a collection of tags (with memcached)
+  def tagCounts(order = 'count desc', at_least = '10')
+    Rails.cache.fetch("tagcount__#{order}__#{at_least}") {
+      Photo.tag_counts(:order => order, :at_least => at_least)
+    }
   end
 end
