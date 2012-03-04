@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
   # ADMIN CONTROLLER ACTIONS BELLOW
   ##########################################################################################
   def index
-    @photos = Photo.search(params[:page], 50)
+    @photos = Photo.search(:page => params[:page], :per_page => 50)
   end
 
   def show

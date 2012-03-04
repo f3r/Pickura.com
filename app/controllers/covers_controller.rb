@@ -1,13 +1,13 @@
 class CoversController < ApplicationController
   def index
-    @photos      = Photo.search(params[:page], params[:per_page], params[:tags])
+    @photos      = Photo.search(params)
     @tags        = Photo.relevant_tags
     @current_tag = params[:tags]
     @title = @current_tag.titleize if @current_tag
   end
   
   def most_popular
-    @photos       = Photo.search(params[:page], params[:per_page], nil, 'counter DESC')
+    @photos       = Photo.search(:page => params[:page], :per_page => params[:per_page], :sorting => 'counter DESC')
     @tags         = Photo.relevant_tags
     @current_tag  = params[:tags]
     @most_popular = true
@@ -15,9 +15,10 @@ class CoversController < ApplicationController
     
     render :index
   end
-
+ 
   def editor_pick
-    @photos      = Photo.search(params[:page], params[:per_page], 'featured', 'updated_at DESC', false)
+    @photos      = Photo.search(:page => params[:page], :per_page => params[:per_page], 
+                    :tags => 'featured', :tag_type => :categories, :sorting => 'updated_at DESC')
     @tags        = Photo.relevant_tags
     @current_tag = params[:tags]
     @editor_pick = true

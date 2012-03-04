@@ -13,14 +13,25 @@ class Photo < ActiveRecord::Base
   WM_POSITIONS = {:south_east => 'Bottom Right', :north_east => 'Top Right', :north_west => 'Top Left', :south_west => 'Bottom Left'}
 
   # Returns a collection of tags (with memcached)
-  def self.search(page=1, per_page=20, tags=nil, sorting='id DESC', search_by_tag=true)
-
-    tag_type = search_by_tag ? :tags : :categories
-    if tags.nil?
-      Photo.paginate(:page => page, :per_page => per_page).order(sorting)
+  #  [page            Integer       Page number of the collection
+  #  [per_page]       Integer       Number of elements per page
+  #  [tags]           String/Array  Tags to search
+  #  [sorting]        String        Column to sort the collection
+  #  [search_by_tag]  Boolean       If true it will search on :tags, otherwise on :categories
+  
+  def self.search(opts = {})
+    opts[:page]     ||= 1
+    opts[:per_page] ||= 15
+    opts[:sorting]  ||= 'id DESC'
+    opts[:tag_type] ||= :tags
+    
+    if opts[:tags]
+      result = Photo.tagged_with(opts[:tags], :on => opts[:tag_type])
     else
-      Photo.tagged_with(tags, :on => tag_type).paginate(:page => page, :per_page => per_page).order(sorting)
+      result = Photo
     end
+    
+    result.order(opts[:sorting]).paginate(:page => opts[:page], :per_page => opts[:per_page])
   end
 
   # Returns a collection of tags (with memcached)
