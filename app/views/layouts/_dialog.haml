@@ -1,0 +1,6 @@
+.modal
+  .modal-header
+    %a.close{'data-dismiss' => 'modal'} x
+    %h2= content_for?(:dialog_title) ? yield(:dialog_title) : "Dialog"
+  .modal-body
+    = content_for?(:dialog_body) ? yield(:dialog_body) : yield

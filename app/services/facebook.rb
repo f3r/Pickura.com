@@ -22,4 +22,10 @@ class Facebook
     end
     album
   end
+  
+  def self.albums(user)
+    @me = FbGraph::User.me(user.token)
+    @me.albums
+  end
+
 end

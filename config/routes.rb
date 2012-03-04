@@ -7,15 +7,15 @@ Covers::Application.routes.draw do
     end
   end
 
-  match 'most-popular'         => 'covers#most_popular', :as => :gallery_popular
-  match 'editors-pick'         => 'covers#editor_pick',  :as => :gallery_editor_pick
-  match 'gallery/:id-:slug'    => 'covers#show',         :as => :gallery_show
-  match 'gallery(/:tags)'      => 'covers#index',        :as => :gallery
-  
-  match 'cover/:id/download'   => 'editor#download',     :as => :download_cover
-  match 'cover/:id/upload'     => 'editor#upload',       :as => :upload_cover
-  match 'editor/:id'           => 'editor#show',         :as => :editor
-  #match 's/:id'              => 'photos'
+  match 'most-popular'        => 'covers#most_popular',   :as => :gallery_popular
+  match 'editors-pick'        => 'covers#editor_pick',    :as => :gallery_editor_pick
+  match 'gallery/:id-:slug'   => 'covers#show',           :as => :gallery_show
+  match 'gallery(/:tags)'     => 'covers#index',          :as => :gallery
+  match 'cover/:id/download'  => 'editor#download',       :as => :download_cover
+  match 'cover/:id/upload'    => 'editor#upload',         :as => :upload_cover
+  match 'cover/premium'       => 'covers#premium'
+  match 'editor/:id'          => 'editor#show',           :as => :editor
+  match 'pick'                => 'facebook_photos#index', :as => :photo_picker
 
   root :to => 'home#index'
 end

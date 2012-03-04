@@ -33,4 +33,7 @@ class CoversController < ApplicationController
     @title = @cover.name
     @cover.increase_viewCount
   end
+
+  def premium
+  end
 end

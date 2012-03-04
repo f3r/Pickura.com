@@ -6,7 +6,7 @@
     .profile_pic_wrapper
       .profile_pic
         .image
-          = image_tag current_user.avatar.url, :id => 'user_avatar'
+          = image_tag current_user.avatar.url, :id => 'user_avatar'#, :height => 125, :width => 125
       
-
+  = render :partial => 'editor_sidebar'
   = #render :partial => 'actions'

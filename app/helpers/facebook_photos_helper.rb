@@ -1,0 +1,2 @@
+module FacebookPhotosHelper
+end

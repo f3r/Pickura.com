@@ -40,4 +40,18 @@ $('a[data-popup]').live('click', function(e) {
   e.preventDefault();
 });
 
+var Picker = {
+  initialize: function(){
+    $('.modal').modal();
+    $(".dropdown-toggle").dropdown();
+    $('#fb_photo_picker .photo-select').click(function(){
+      var box_id = $('#fb_photo_picker').data('box');
+      var box = $('#box_' + box_id)
+      box.addClass('selected');
+      box.find('a').attr('style', 'background-image: url("' + $(this).data('image')) + '")';
+      $('#fb_photo_picker .modal').modal('hide');
+    });
+  }
+}
+
 Editor.initialize();

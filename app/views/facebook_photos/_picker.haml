@@ -1,0 +1,18 @@
+- content_for :dialog_title do
+  = 'Choose a photo from Facebook'
+
+= render :layout => 'layouts/dialog' do
+  .photo-list
+    .btn-group
+      %a.btn.dropdown-toggle
+        = @album.name
+        %span.caret
+      %ul.dropdown-menu
+        - @albums.each do |album|
+          - next if album.identifier == @album.identifier
+          %li
+            = link_to album.name, photo_picker_path(:album_id => album.identifier), :remote => true, :onclick => "$('#fb_photo_picker .photo-list').addClass('loading')"
+    .photos
+      - @photos.each do |photo|
+        %a.photo-select{:href => '#', 'data-image' => photo.images[1].source}
+          .thumb{:style => "background-image: url(\"#{photo.images[1].source}\")"}

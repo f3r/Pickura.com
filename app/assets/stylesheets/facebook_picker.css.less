@@ -1,0 +1,45 @@
+#fb_photo_picker {
+  .btn-group {
+    margin: 0 0 20px 16px;
+  }
+}
+
+.photo-list {
+  .photo-select {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    display: inline-block;
+    outline: medium none;
+    padding: 4px;
+    position: relative;
+    vertical-align: bottom;
+    
+    &.selected a {
+      font-size: 0;
+    }
+  }
+  
+  &.loading {
+    opacity: 0.5;
+  }
+  .photos {
+    width: 485px;
+    margin: auto;
+    min-height: 200px;
+    max-height: 300px;
+    .photo {
+      /*float: left;
+      width: 180px;*/
+    }
+  }
+  .thumb {
+    height: 116px;
+    line-height: 116px;
+    width: 149px;
+    background-color: #EEEEEE;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+    display: block;
+    vertical-align: middle;
+  }
+}

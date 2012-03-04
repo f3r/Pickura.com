@@ -1,0 +1,5 @@
+<%= page_replace_html('#fb_photo_picker', :partial => 'facebook_photos/picker') %>
+<% if params[:box] %>
+  $('#fb_photo_picker').data('box', '<%= params[:box] %>');
+<% end %>
+Picker.initialize();
