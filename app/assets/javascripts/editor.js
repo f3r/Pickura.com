@@ -1,12 +1,20 @@
-var Editor = {
+ var Editor = {
   initialize: function(){
   	console.log('initializing');
   	$('.sticker').click(function(){
         Editor.newSticker($(this).attr('src'));
   	});
   	
-  	$('#download_button, #upload_button').click(function(){
+  	$('#upload_button').click(function(){
   	  $(this).button('loading');
+  	});
+  	
+  	$('#download_button').click(function(){
+  	  var button = $(this);
+  	  button.button('loading');
+  	  setTimeout(function(){
+  	    button.button('reset');
+  	  }, 2000);
   	});
   	
   	$('#upload_modal').on('hide', function () {

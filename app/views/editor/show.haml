@@ -10,20 +10,31 @@
       
 
   .form-actions
-    = link_to 'Download', download_cover_url, :id => 'download_button', :class => 'btn btn-primary btn-large', 'data-loading-text' => 'Downloading...', 'data-popup' => true, 'data-dialog-name' => 'Downloading'
-    = link_to 'Upload', '#upload_modal', :id => 'upload_button', :class => 'btn btn-primary btn-large', 'data-loading-text' => 'Uploading...', 'data-toggle' => 'modal'
+    = link_to 'Download', download_cover_url, :id => 'download_button', :class => 'btn btn-info btn-large', 'data-loading-text' => 'Downloading...'
+    = link_to 'Upload', '#upload_modal', :id => 'upload_button', :class => 'btn btn-info btn-large', 'data-loading-text' => 'Uploading...', 'data-toggle' => 'modal'
     
 #upload_modal.modal{:style => 'display: none'}
   .modal-header
     %a.close{'data-dismiss' => 'modal'} x
-    %h3= 'Upload'
-  .modal-body
     .step1
-      Uploading...
-      Please wait, or something like that
+      %h2 Uploading Cover...
+    .step2
+      %h2 Your cover is ready to use!
+  .modal-body
+    .step1.row-fluid
+      .msg.span8
+        %p We are currently uploading your new Facebook Cover
+        %p In the meantime, why not Like us on Facebook?
+        .upload-bar
+          = image_tag 'loading30.gif'
+      .modal-right.span4
+        %h3 Like us:
+        .fb-widget
+          Facebook widget here
       = link_to 'Upload', upload_cover_path(@cover), :class => 'trigger', :remote => true, :style => 'display:none'
     .step2
-      Uploaded
-      Instructions
-      Social links
-  .modal-footer
+      %p Now set the cover on your profile in Facebook. Click the <strong>"Change my cover"</strong> button and follow the steps below to set your new cover on your profile:
+      .button-out
+        = link_to 'Change my cover', 'http://www.facebook.com/me', :target => '_blank', :class => 'btn btn-info btn-large'
+      .instructions
+        = image_tag 'cover-instructions.png'

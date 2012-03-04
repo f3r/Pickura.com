@@ -11,7 +11,7 @@ class EditorController < ApplicationController
   end
 
   def upload
-    Facebook.upload_cover(@cover, current_user)
+    #Facebook.upload_cover(@cover, current_user)
   end
 
   def find_cover
