@@ -16,7 +16,7 @@
         .photo.span9
           .name= @cover.name
           .img
-            = link_to image_tag(@cover.source.branded), editor_path(@cover)
+            = link_to image_tag(@cover.source.preview), editor_path(@cover)
           = render :partial => 'editor/actions'
           .info
             .fb_comments2
