@@ -4,8 +4,8 @@
 
 .title_bar {
   background-color: #222;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
+//  -webkit-border-radius: 10px;
+//  -moz-border-radius: 10px;
   border: 1px #555 solid;
 }
 
@@ -37,7 +37,6 @@
     .img {
       display: inline-block;
       img {
-//        width: 868px;
       }
     }
     
@@ -57,7 +56,6 @@
     .fb_comments2 {
       height: 25px;
     }
-
   }
 }
 
@@ -69,12 +67,15 @@
   border: 1px solid silver;
   margin: 10px 2px;
   text-align:center;
+  overflow: hidden;
 
   .tag_title {
     font-weight: bold;
     font-size: 16px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 0px;
+    background-color: black;
+    color: white;
+    line-height: 33px;
   }
 
   .tags {
@@ -85,7 +86,7 @@
     border-top: 1px dotted #CCC;
     padding-top: 5px;
     padding-bottom: 5px;
-
+    
     &.active {
       background-color: #002F47;
       border: none;
@@ -110,6 +111,7 @@
   margin-top: 20px;
   padding: 0.3em;
   cursor: default;
+  width: 642px;
 
   a, span, em {
     padding: 0.2em 0.5em; 

@@ -30,8 +30,8 @@
           .container.nav-collapse
             %ul.nav
               %li= link_to "Gallery", gallery_path
-              %li= link_to "Most Popular", "/path2"
-              %li= link_to "Help", "/path3"
+              %li= link_to "Most Popular", gallery_popular_path
+              %li= link_to "Editor's pick", gallery_editor_pick_path
             %ul.nav.pull-right
               - if user_signed_in?
                 %li= link_to "Hello #{current_user.email}", "/profile", :style => "color:#555"
@@ -43,7 +43,6 @@
                     = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)
 
     .container
-      .content
-        = content_for?(:main) ? yield(:main) : yield
+      = content_for?(:main) ? yield(:main) : yield
       
     = javascript_include_tag "application"

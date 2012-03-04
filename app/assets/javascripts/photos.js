@@ -30,9 +30,9 @@
   // Show facebook comments on hover
   $('.photo').hover(
     function() {
-      $(this).children(".fb_comments").show();
+      $(this).children(".fb_comments").show('slow');
     },
     function() {
-      $(this).children(".fb_comments").hide();
+      $(this).children(".fb_comments").hide('slow');
     }
   )

@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120303070213) do
+ActiveRecord::Schema.define(:version => 20120304110902) do
 
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.string   "source"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "watermark_position"
+    t.integer  "counter",            :default => 0
   end
 
   create_table "pictures", :force => true do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120303070213) do
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
     t.string   "avatar"
+    t.boolean  "role"
     t.string   "token"
     t.boolean  "admin"
   end

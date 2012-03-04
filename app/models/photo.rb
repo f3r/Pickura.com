@@ -13,12 +13,13 @@ class Photo < ActiveRecord::Base
   WM_POSITIONS = {:south_east => 'Bottom Right', :north_east => 'Top Right', :north_west => 'Top Left', :south_west => 'Bottom Left'}
 
   # Returns a collection of tags (with memcached)
-  def self.search(page=1, per_page=20, tags=nil)
-    # Returns a collection of photos (with memcached)
+  def self.search(page=1, per_page=20, tags=nil, sorting='id DESC', search_by_tag=true)
+
+    tag_type = search_by_tag ? :tags : :categories
     if tags.nil?
-      Photo.paginate(:page => page, :per_page => per_page).order('id ASC')
+      Photo.paginate(:page => page, :per_page => per_page).order(sorting)
     else
-      Photo.tagged_with(tags).paginate(:page => page, :per_page => per_page).order('id ASC')
+      Photo.tagged_with(tags, :on => tag_type).paginate(:page => page, :per_page => per_page).order(sorting)
     end
   end
 
@@ -42,6 +43,13 @@ class Photo < ActiveRecord::Base
     end
   end
 
+  def increase_viewCount
+    ActiveRecord::Base.transaction do
+      self.counter = self.counter + 1
+      self.save!
+    end
+  end
+  
   protected
 
   def expire_cache

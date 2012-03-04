@@ -1,29 +1,38 @@
-.row.span11.title_bar
-  .title Cover Photos
+/ .row
+/   .span10.offset1
+/     .title_bar
+/       .title Cover Photos
 
-.row-fluid.span10.offset1
-  .tag_list.span2
-    .tag_title Tag List
-    %ul.unstyled.tags
-      - @tags.each do |tag|
-        %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
-          = link_to "#{tag.name.capitalize}", gallery_path(tag.name), {:style => "margin-right:-25px; font-weight: bold"}
-          %span.label{:style => "float:right; margin-right:10px"}= tag.count
+.row
+  .span10.offset2
+    .row
+      .span2.tag_list
+        .tag_title Top Covers
+        %ul.unstyled.tags
+          %li.tag{:class => @most_popular? 'active' : ''}
+            = link_to "Most Popular", gallery_popular_path, {:style => "margin-right:-25px; font-weight: bold"}
+          %li.tag{:class => @editor_pick? 'active' : ''}
+            = link_to "Editor's Pick", gallery_editor_pick_path, {:style => "margin-right:-25px; font-weight: bold"}
+        .tag_title Gallery Tags
+        %ul.unstyled.tags
+          - @tags.each do |tag|
+            %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
+              = link_to "#{tag.name.titleize}", gallery_path(tag.name), {:style => "margin-right:-25px; font-weight: bold"}
+              %span.label{:style => "float:right; margin-right:10px"}= tag.count
 
-  .gallery_list.span9
-    - @photos.each do |photo|
-      .row
-        .photo.span9
-          .name= photo.name
-          .img
-            = link_to image_tag(photo.source.branded), seo_photo_path(photo)
-          .hide.fb_comments
-            .fb-like{"data-href"=> "#{seo_photo_path(photo)}","data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
-            .span{:style => "float:right"}= link_to "view image", seo_photo_path(photo)
-          
+      .span8.gallery_list
+        - @photos.each do |photo|
+          .row
+            .photo.span7
+              .name= photo.name
+              .img
+                = link_to image_tag(photo.source.preview), seo_photo_path(photo)
+              .hide.fb_comments
+                .fb-like{"data-href"=> "#{seo_photo_path(photo)}","data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
+                / .span{:style => "float:right"}= link_to "view image", seo_photo_path(photo)
 
-.span10
-  .flickr_pagination
-    = will_paginate @photos, :container => false
-    .page_info
-      = page_entries_info @photos
+        .row
+          .flickr_pagination
+            = will_paginate @photos, :container => false
+            .page_info
+              = page_entries_info @photos
