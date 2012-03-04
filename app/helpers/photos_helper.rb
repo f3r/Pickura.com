@@ -10,6 +10,6 @@ module PhotosHelper
     result.gsub!(/[ \-]+/i, '-')      # No more than one of the separator in a row.
     result.gsub!(/^\-|\-$/i, '')      # Remove leading/trailing separator.
     result.downcase!
-    "/gallery/#{photo.id}-#{result}-facebook-timeline-cover"
+    "#{root_url}gallery/#{photo.id}-#{result}-facebook-timeline-cover"
   end
 end

@@ -14,13 +14,13 @@
     .gallery_list.span9
       .row
         .photo.span9
-          .name= @photo.name
+          .name= @cover.name
           .img
-            = link_to image_tag(@photo.source.branded), editor_path(@photo)
+            = link_to image_tag(@cover.source.branded), editor_path(@cover)
           = render :partial => 'editor/actions'
           .info
             .fb_comments2
               .fb-like{"data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
       .row
         .photo.span9
-          .fb-comments{"data-href"=>"#{seo_photo_path(@photo)}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
+          .fb-comments{"data-href"=>"#{seo_photo_path(@cover)}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
