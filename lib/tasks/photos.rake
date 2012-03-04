@@ -18,7 +18,7 @@ namespace :pictures do
   desc "Recreate versions of photos - Use from:<no>, to:<no> to process a certain id ranges"
   task :recreate_versions => :environment do
     ini = !ENV['from'].nil? ? ENV['from'].to_i : 1
-    fin = !ENV['to'].nil?   ? ENV['to'].to_i   : Photo.count
+    fin = !ENV['to'].nil?   ? ENV['to'].to_i   : Photo.last.id
 
     puts "Starting Photo recreation #{ini} to #{fin}"    
     Photo.where(:id => ini.to_i ..fin.to_i).all.each do |photo|
