@@ -2,6 +2,9 @@
 -#   .row.span11.title_bar
 -#     .title Cover Photos
 
+- content_for(:meta) do
+  %meta{:name => "description", :content => "Name: #{@cover.name}, Tags: #{@cover.tag_list.join(" ")}"}
+
 .row
   .span10.offset2
     .row

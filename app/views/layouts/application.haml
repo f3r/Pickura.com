@@ -1,7 +1,8 @@
 !!! 5
 %html{:lang => "en"}
   %head
-    %meta{:charset => "utf-8"}/
+    %meta{:charset => "utf-8"}
+    = yield(:meta)
     %title= page_title
     %link{:rel =>"icon", :type => "image/png", :href => "https://s3.amazonaws.com/pickura/static/favicon.ico"}
     = csrf_meta_tags
