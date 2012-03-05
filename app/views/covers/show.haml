@@ -27,7 +27,7 @@
           .photo.span7
             .nameShowPage= @cover.name
             .img
-              = image_tag(@cover.source.preview)
+              = image_tag(@cover.source.preview, :alt => "#{@cover.name} - #{@cover.tags.join(' ')}")
             = render :partial => 'editor/actions'
 
         .row
