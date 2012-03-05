@@ -4,16 +4,64 @@
 
 body {
   background-color: black;
+  background-image:url(https://s3.amazonaws.com/pickura/static/background.png);
 }
 
 .main_wrapper {
-  width:600px;
-  margin:40px auto
+  width:100%;
+  margin:10px auto
 }
 
 .sign_in_button {
   text-align: center;
   a img {
-    margin-top: 65px;
+    /*margin-top: 65px;*/
   }
+}
+
+.intro_text {
+  width:840px;
+  margin:0 auto 40px auto;
+  text-align:center;
+  .title_homepage {
+    font-family: StreetHumoresque;
+    font-size: 24pt;  
+    color: #fff;
+    /*width: 700px;*/
+    line-height: 44px;
+    margin: auto;
+    margin-top: 20px;
+  }
+  p {
+    font-size:18px;
+    color:#e7ebf2;
+  }  
+}
+
+
+.title_homepage_bottom {
+  font-family: StreetHumoresque;
+  font-size: 21pt;
+  color: #555;
+  text-align: center;
+  width: 700px;
+  line-height: 44px;
+  margin: auto;
+}
+
+
+.roundabout-holder {
+   list-style: none;
+   padding: 0;
+   margin: 0 auto;
+   width: 600px;
+   height: 250px;
+}
+.roundabout-moveable-item {
+   width: 422px;
+   height: 180px;
+   cursor: pointer;
+}
+.roundabout-in-focus {
+   cursor: auto;
 }

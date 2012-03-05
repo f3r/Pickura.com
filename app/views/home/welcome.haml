@@ -1,16 +1,19 @@
 .main_wrapper
-  .slider-wrapper.theme-default.controlnav-thumbs
-    .ribbon
-    #nivoslider.nivoSlider{:style => "width:600px;height:264px;"}
-      - @photos.each do |photo|
-        %img{:src => photo, :rel => photo} 
-        / #, :alt => photo.name}
 
-.title_homepage
-  Timeline isn't as bad as it seems ;)
+  %ul.slider
+    - @photos.each do |photo|
+      %li
+        %img{:src => photo, :rel => photo} 
+
+.intro_text
+  .title_homepage
+    CREATE A Facebook Cover IN JUST A FEW SECONDS
+  -# TODO: welcome/explanation text?
+  %p
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 
 .sign_in_button
   = link_to image_tag("fb_login_big.png"), user_omniauth_authorize_path(:facebook)
   
-.title_homepage_bottom
-  to create your own cover
+-# .title_homepage_bottom
+-#   to create your own cover
