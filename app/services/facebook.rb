@@ -22,10 +22,10 @@ class Facebook
     end
     album
   end
-  
+
   def self.albums(user)
     @me = FbGraph::User.me(user.token)
-    @me.albums
+    @me.albums.reject{|a| a.count <= 1}
   end
 
 end
