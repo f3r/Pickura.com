@@ -16,6 +16,7 @@ gem 'fog'                       # Image uploading to S3
 gem 'rmagick'                   # Image processing
 gem 'best_in_place'             # inline editing for photo admin
 gem 'will_paginate', '~> 3.0'   # Pagination
+gem 'sitemap_generator'         # https://github.com/kjvarga/sitemap_generator
 
 gem 'acts-as-taggable-on',  :path => "vendor/gems/acts-as-taggable-on-2.2.2" # '~> 2.2.2'  # handle tags for photos
 
