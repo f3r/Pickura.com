@@ -28,7 +28,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
       case corner
       when :south_east, nil
         gravity = Magick::SouthEastGravity
-        path_to_file = "#{Rails.root}/app/assets/images/watermark-right.png"
+        path_to_file = "#{Rails.root}/app/assets/images/watermark-right-bottom.png"
       when :south_west
         gravity = Magick::SouthWestGravity
         path_to_file = "#{Rails.root}/app/assets/images/watermark-left.png"

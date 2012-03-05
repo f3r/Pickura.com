@@ -15,18 +15,19 @@ namespace :pictures do
     end  
   end
   
-  desc "Recreate versions of photos - Use from:<no>, to:<no> to process a certain id ranges"
+  desc "Recreate versions of photos - Filters: from=<no> to=<no> corner=<gravity>"
   task :recreate_versions => :environment do
-    ini = !ENV['from'].nil? ? ENV['from'].to_i : 1
-    fin = !ENV['to'].nil?   ? ENV['to'].to_i   : Photo.last.id
+    ini    = !ENV['from'].nil?   ? ENV['from'].to_i : 1
+    fin    = !ENV['to'].nil?     ? ENV['to'].to_i   : Photo.last.id
 
     puts "Starting Photo recreation #{ini} to #{fin}"    
-    Photo.where(:id => ini.to_i ..fin.to_i).all.each do |photo|
+    photos = Photo.where(:id => ini.to_i ..fin.to_i)
+    photos = photos.where(:watermark_position => ENV['corner']) unless ENV['corner'].nil?
+    photos.all.each do |photo|
       photo.source.recreate_versions!
       puts "[#{photo.id}] \"#{photo.name}\" recreated succesfully"
     end
-    puts "Finished Photo recreation of #{fin-ini+1} photos. Good job!"    
-
+    puts "Finished Photo recreation of #{fin-ini+1} photos. Good job!"
   end
   
   desc "Recreate avatar files"
