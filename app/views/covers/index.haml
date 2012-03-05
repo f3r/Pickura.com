@@ -28,7 +28,7 @@
             .photo.span7
               .name= photo.name
               .img
-                - photo_tags = photo.tags ? photo.tags.join(' ') : ''
+                - photo_tags = photo.tags.empty? ? '' : photo.tags.join(' ')
                 = link_to image_tag(photo.source.preview, :alt => "#{photo.name} - #{photo_tags} Facebook Timeline Cover"), seo_photo_path(photo)
               .hide.fb_comments
                 .fb-like{"data-href"=> "#{seo_photo_path(photo)}","data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
