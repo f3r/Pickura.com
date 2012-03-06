@@ -15,7 +15,7 @@
         %li.tag{:class => @editor_pick? 'active' : ''}
           = link_to "Editor's Pick", gallery_editor_pick_path
       .tag_title Gallery Tags
-      %ul.unstyled.tags
+      %ul.gallery_tags.tags
         - @tags.each do |tag|
           %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
             = link_to "#{tag.name.titleize}", gallery_path(tag.name)

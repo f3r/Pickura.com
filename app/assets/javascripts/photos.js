@@ -28,11 +28,17 @@
  * GALLERY
  *************************************************************************************************/
   // Show facebook comments on hover
-  $('.photo').hover(
-    function() {
-      $(this).children(".fb_comments").show('slow');
-    },
-    function() {
-      // $(this).children(".fb_comments").hide('slow');
-    }
-  )
+  $(document).ready(function(){
+    console.log("woa");
+    $('.photo').hover(
+      function() {
+        $(this).children(".fb_comments").show();
+        console.log("show");
+      },
+      function() {
+        $(this).children(".fb_comments").hide();
+        console.log("hide");
+      }
+    );
+  });
+    
