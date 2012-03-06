@@ -23,6 +23,7 @@ namespace :pictures do
     puts "Starting Photo recreation #{ini} to #{fin}"    
     photos = Photo.where(:id => ini.to_i ..fin.to_i)
     photos = photos.where(:watermark_position => ENV['corner']) unless ENV['corner'].nil?
+    photos = photos.order("id ASC")
     photos.all.each do |photo|
       photo.source.recreate_versions!
       puts "[#{photo.id}] \"#{photo.name}\" recreated succesfully"
