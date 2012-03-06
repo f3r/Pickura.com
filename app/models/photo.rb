@@ -60,7 +60,14 @@ class Photo < ActiveRecord::Base
       self.save!
     end
   end
-  
+
+  def increase_downloadCount
+    ActiveRecord::Base.transaction do
+      self.counter_downloads = self.counter_downloads + 1
+      self.save!
+    end
+  end
+    
   protected
 
   def expire_cache
