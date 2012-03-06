@@ -24,9 +24,4 @@ $(document).ready(function() {
     dropEasing: easing_options[11],
     autoplayPauseOnHover: true
   });
-  
-  // $('.slider img').click(function() {
-  //     $('#user_image').attr("src", $(this).data('target'));
-  //   });
-  
 });
