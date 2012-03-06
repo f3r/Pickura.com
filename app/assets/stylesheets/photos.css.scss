@@ -22,16 +22,13 @@
   list-style: none;
 
   .photo {
-    padding: 7px;
     background: white;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    border: 1px solid silver;
-    margin: 10px 2px;
+    margin: 10px 0;
+    padding:15px;
+    border-bottom: 4px solid #000;
+    border-right: 4px solid #000;
 
     &:hover {
-      background-color: #eef;
     }
 
     .img {
@@ -41,20 +38,16 @@
     }
     
     .name {
-      font-size: 21px;
-      margin-top: 4px;
-      margin-bottom: 4px;
-      font-family: fantasy;
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 10px;
       font-color: #444;
     }
 
     .nameShowPage {
       font-size: 24px;
-      margin-top: 13px;
       margin-bottom: 14px;
-      font-family: fantasy;
       font-color: #444;
-      margin-left: 3px;
     }
         
     .fb_comments {
@@ -84,38 +77,58 @@
 }
 
 .tag_list {
-  background: white;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  border: 1px solid silver;
-  margin: 10px 2px;
-  text-align:center;
+
+  margin: 10px;
+  padding: 10px;
+  text-align:left;
   overflow: hidden;
+  background-color:#e7ebf2;
+  /*-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;*/
+  border-bottom: 4px solid #000;
+  border-right: 4px solid #000;
 
   .tag_title {
     font-weight: bold;
     font-size: 16px;
-    margin-top: 0px;
-    background-color: black;
-    color: white;
-    line-height: 33px;
+    margin: 10px 0 ;
+    color: #063;
+    line-height: 100%;
   }
-
+  .filters {
+   font-size:14px;
+   font-weight:bold;
+   text-align:center;
+   .tag {
+     &.active {
+       background-color: #002F47;
+       padding:3px 5px;
+       border: none;
+       a{
+         color:white;
+       }
+     }
+   }
+  }
   .tags {
-    margin-right: -1px;
-    margin-left: -1px;
+    margin:0;
+    list-style-type:none;
   }
   .tag {
     border-top: 1px dotted #CCC;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    
+    padding: 5px;
+    .label {
+      float:right;
+      padding:0px 3px 0px;
+    }
     &.active {
-      background-color: #002F47;
       border: none;
+      background-color:#fff;
+      font-weight:bold;
       a {
-        color: white;
+        color: #f30;
         text-decoration: none;
       }
     }
@@ -125,7 +138,7 @@
 
     a {
       text-decoration: none;
-      color: #00003D;
+      color: #333;
     }
   }
 }

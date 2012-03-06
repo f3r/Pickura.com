@@ -5,36 +5,36 @@
 - content_for(:meta) do
   %meta{:name => "description", :content => "Description: Get creative. get designer. get Pickura. The only designer Facebook Timeline cover editor around, Tags: #{@tags.all.join(" ")}"}
 
+
 .row
-  .span10.offset2
-    .row
-      .span2.tag_list
-        .tag_title Top Covers
-        %ul.unstyled.tags
-          %li.tag{:class => @most_popular? 'active' : ''}
-            = link_to "Most Popular", gallery_popular_path, {:style => "margin-right:-25px; font-weight: bold"}
-          %li.tag{:class => @editor_pick? 'active' : ''}
-            = link_to "Editor's Pick", gallery_editor_pick_path, {:style => "margin-right:-25px; font-weight: bold"}
-        .tag_title Gallery Tags
-        %ul.unstyled.tags
-          - @tags.each do |tag|
-            %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
-              = link_to "#{tag.name.titleize}", gallery_path(tag.name), {:style => "margin-right:-25px; font-weight: bold"}
-              %span.label{:style => "float:right; margin-right:10px"}= tag.count
+  .span3
+    .tag_list
+      .tag_title Top Covers
+      %ul.filters.tags
+        %li.tag{:class => @most_popular? 'active' : ''}
+          = link_to "Most Popular", gallery_popular_path
+        %li.tag{:class => @editor_pick? 'active' : ''}
+          = link_to "Editor's Pick", gallery_editor_pick_path
+      .tag_title Gallery Tags
+      %ul.unstyled.tags
+        - @tags.each do |tag|
+          %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
+            = link_to "#{tag.name.titleize}", gallery_path(tag.name)
+            %span.label= tag.count
+  .span9
+    .gallery_list
+      - @photos.each do |photo|
+        .photo
+          .name= photo.name
+          .img
+            - photo_tags = photo.tags.empty? ? '' : photo.tags.join(' ')
+            = link_to image_tag(photo.source.preview, :class => 'cover', :alt => "#{photo.name} - #{photo_tags} Facebook Timeline Cover"), seo_photo_path(photo)
+          .fb_comments
+            .fb-like{"data-href"=> "#{seo_photo_path(photo)}","data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
 
-      .span8.gallery_list
-        - @photos.each do |photo|
-          .row
-            .photo.span7
-              .name= photo.name
-              .img
-                - photo_tags = photo.tags.empty? ? '' : photo.tags.join(' ')
-                = link_to image_tag(photo.source.preview, :class => 'cover', :alt => "#{photo.name} - #{photo_tags} Facebook Timeline Cover"), seo_photo_path(photo)
-              .hide.fb_comments
-                .fb-like{"data-href"=> "#{seo_photo_path(photo)}","data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
-
-        .row
-          .flickr_pagination
-            = will_paginate @photos, :container => false
-            .page_info
-              = page_entries_info @photos
+.row
+  .span12
+  .flickr_pagination
+    = will_paginate @photos, :container => false
+    .page_info
+      = page_entries_info @photos

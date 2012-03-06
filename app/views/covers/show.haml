@@ -6,32 +6,31 @@
   %meta{:name => "description", :content => "Name: #{@cover.name}, Tags: #{@cover.tag_list.join(" ")}"}
 
 .row
-  .span10.offset2
-    .row
-      .span2.tag_list
-        .tag_title Top Covers
-        %ul.unstyled.tags
-          %li.tag{:class => @most_popular? 'active' : ''}
-            = link_to "Most Popular", gallery_popular_path, {:style => "margin-right:-25px; font-weight: bold"}
-          %li.tag{:class => @editor_pick? 'active' : ''}
-            = link_to "Editor's Pick", gallery_editor_pick_path, {:style => "margin-right:-25px; font-weight: bold"}
-        .tag_title Gallery Tags
-        %ul.unstyled.tags
-          - @tags.each do |tag|
-            %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
-              = link_to "#{tag.name.titleize}", gallery_path(tag.name), {:style => "margin-right:-25px; font-weight: bold"}
-              %span.label{:style => "float:right; margin-right:10px"}= tag.count
+  .span3
+    .tag_list
+      .tag_title Top Covers
+      %ul.filters.tags
+        %li.tag{:class => @most_popular? 'active' : ''}
+          = link_to "Most Popular", gallery_popular_path
+        %li.tag{:class => @editor_pick? 'active' : ''}
+          = link_to "Editor's Pick", gallery_editor_pick_path
+      .tag_title Gallery Tags
+      %ul.unstyled.tags
+        - @tags.each do |tag|
+          %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
+            = link_to "#{tag.name.titleize}", gallery_path(tag.name)
+            %span.label= tag.count
 
-      .gallery_list.span8
-        .row
-          .photo.span7
-            .nameShowPage= @cover.name
-            .img
-              = image_tag(@cover.source.preview, :alt => "#{@cover.name} - #{@cover.tags.join(' ')}")
-            = render :partial => 'editor/actions'
+  .span9
+    .gallery_list
+      .photo
+        .nameShowPage= @cover.name
+        .img
+          = image_tag(@cover.source.preview, :alt => "#{@cover.name} - #{@cover.tags.join(' ')}")
+        = render :partial => 'editor/actions'
 
-        .row
-          .photo.span7
-            .fb_comments2
-              .fb-like{"data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
-            .fb-comments{"data-href"=>"#{seo_photo_path(@cover)}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
+  .row
+    .photo.span7
+      .fb_comments2
+        .fb-like{"data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
+      .fb-comments{"data-href"=>"#{seo_photo_path(@cover)}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}

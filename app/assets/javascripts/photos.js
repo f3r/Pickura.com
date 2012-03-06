@@ -33,6 +33,6 @@
       $(this).children(".fb_comments").show('slow');
     },
     function() {
-      $(this).children(".fb_comments").hide('slow');
+      // $(this).children(".fb_comments").hide('slow');
     }
   )
