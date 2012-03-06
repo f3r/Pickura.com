@@ -27,18 +27,12 @@
 /************************************************************************************************ 
  * GALLERY
  *************************************************************************************************/
-  // Show facebook comments on hover
-  $(document).ready(function(){
-    console.log("woa");
-    $('.photo').hover(
-      function() {
-        $(this).children(".fb_comments").show();
-        console.log("show");
-      },
-      function() {
-        $(this).children(".fb_comments").hide();
-        console.log("hide");
-      }
-    );
-  });
-    
+  // Sharing buttons
+  $('.photo').hover(
+    function() {
+      $(this).children(".fb_comments").show();
+    },
+    function() {
+      $(this).children(".fb_comments").hide();
+    }
+  );

@@ -51,16 +51,17 @@
     }
         
     .fb_comments {
-      background-color: #EEEEEE;
-      border-bottom: 2px solid #000000;
-      border-right: 2px solid #000000;
+      background-color: #eee;
+      border-bottom: 2px solid #000;
+      border-right: 2px solid #000;
       height: 25px;
-      width:490px;
       margin-left: 10px;
       margin-top: -33px;
-      padding: 5px;
+      padding: 8px 5px 5px;
       position: absolute;
-      z-index:999;
+      text-align: center;
+      width: 189px;
+      z-index: 999;
     }
 
     // For the show photo page (no more hiding)
