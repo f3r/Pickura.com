@@ -4,7 +4,7 @@ class HomeController < ApplicationController
       redirect_to gallery_path
     else
       @photos = []
-      (1..10).each {|i|
+      (1..11).each {|i|
         @photos << "https://s3.amazonaws.com/pickura/static/branded#{i}.jpg"
       }
       render 'welcome'

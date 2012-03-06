@@ -9,7 +9,14 @@ body {
 
 .main_wrapper {
   width:100%;
-  margin:10px auto
+  margin:0px auto 119px auto;
+  
+  .cover_template img {
+    position: absolute;
+    width: 515px;
+    margin: 59px 244px;
+    z-index: 267;
+  }
 }
 
 .sign_in_button {
@@ -20,17 +27,19 @@ body {
   width:840px;
   margin:0 auto 40px auto;
   text-align:center;
+
   .title_homepage {
     font-family: StreetHumoresque;
     font-size: 24pt;  
     color: #fff;
     line-height: 44px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 172px;
   }
   p {
     font-size:18px;
-    color:#e7ebf2;
+    color:#9293A6;
+    margin-top:15px;
   }  
 }
 
@@ -49,7 +58,7 @@ body {
 .roundabout-holder {
    list-style: none;
    padding: 0;
-   margin: 0 auto;
+   margin: -21px auto;
    width: 600px;
    height: 250px;
 }
