@@ -4,7 +4,7 @@
   %ul.slider
     - @photos.each do |photo|
       %li
-        %img{:src => photo, :rel => photo} 
+        = link_to image_tag(photo, :rel => photo), gallery_path
 
 .intro_text
   .title_homepage
@@ -16,6 +16,3 @@
 .intro_text
   %p
     Timeline isn't as bad as it seems ;)
-
--# .title_homepage_bottom
--#   to create your own cover
