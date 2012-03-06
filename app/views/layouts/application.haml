@@ -38,7 +38,7 @@
                 %li= link_to "Hello #{current_user.email}", "/profile", :style => "color:#555"
                 %li= link_to 'Sign out', destroy_user_session_path, :method => :delete, :style => "font-weight:bold;"
                 %li{:style => "height:40px"}= image_tag(current_user.avatar.thumb.url)
-              - elsif !@current_action == "index" and !@current_controller == "home"
+              - elsif @current_controller != "home"
                 %li
                   .menu_facebook
                     = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)

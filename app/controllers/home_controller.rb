@@ -10,13 +10,4 @@ class HomeController < ApplicationController
       render 'welcome'
     end
   end
-
-  def editor
-  end
-
-  protected
-
-  def load_photos
-    @photos = Photo.limit(10)
-  end
 end
