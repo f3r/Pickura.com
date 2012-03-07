@@ -29,6 +29,10 @@
       - @photos.each do |photo|
         .photo
           .name= photo.name
+          .download_count
+            <i class="icon-download"></i>
+            =photo.download_count
+            Downloads
           .img
             - photo_tags = photo.tags.empty? ? '' : photo.tags.join(' ')
             - cover_description = "#{photo.name} - #{photo_tags}"

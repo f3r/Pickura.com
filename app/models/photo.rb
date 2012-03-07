@@ -67,7 +67,11 @@ class Photo < ActiveRecord::Base
       self.save!
     end
   end
-    
+
+  def download_count
+    count = counter_downloads + download_seed_fake
+  end
+
   protected
 
   def expire_cache

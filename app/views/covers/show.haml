@@ -29,6 +29,10 @@
     .gallery_list
       .photo
         .nameShowPage= @cover.name
+        .download_count
+          <i class="icon-download"></i>
+          =@cover.download_count
+          Downloads
         .img
           - photo_tags = @cover.tags.empty? ? '' : @cover.tags.join(' ')
           - cover_description = "#{@cover.name} - #{photo_tags}"

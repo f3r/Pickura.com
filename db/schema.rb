@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120306142027) do
+ActiveRecord::Schema.define(:version => 20120307210144) do
 
   create_table "photos", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120306142027) do
     t.string   "watermark_position"
     t.integer  "counter",            :default => 0
     t.integer  "counter_downloads",  :default => 0
+    t.integer  "download_seed_fake", :default => 0
   end
 
   create_table "pictures", :force => true do |t|

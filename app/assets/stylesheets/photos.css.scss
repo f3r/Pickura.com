@@ -42,12 +42,24 @@
       margin-top: 0;
       margin-bottom: 10px;
       font-color: #444;
+      width:80%;
+      float:left;
     }
 
     .nameShowPage {
       font-size: 24px;
       margin-bottom: 14px;
       font-color: #444;
+      width:80%;
+      float:left;
+    }
+    
+    .download_count {
+      font-size:11px;
+      width:20%;
+      float:left;
+      text-align:right;
+      color:#333;
     }
         
     .social_sharing {
