@@ -31,12 +31,14 @@
           .name= photo.name
           .img
             - photo_tags = photo.tags.empty? ? '' : photo.tags.join(' ')
-            = link_to image_tag(photo.source.preview, :class => 'cover', :alt => "#{photo.name} - #{photo_tags} Facebook Timeline Cover"), seo_photo_path(photo)
+            - cover_description = "#{photo.name} - #{photo_tags}"
+            = link_to image_tag(photo.source.preview, :class => 'cover', :alt => cover_description), seo_photo_path(photo)
           .hide.social_sharing
-            %span.st_twitter_hcount{:displayText=>'Tweet', :st_url=>seo_photo_path(photo)}
-            %span.st_facebook_hcount{:displayText=>'Facebook', :st_url=>seo_photo_path(photo)}
-            %span.st_plusone_hcount{:displayText=>'Google +1', :st_url=>seo_photo_path(photo)}
-            %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>seo_photo_path(photo)}
+            %span.st_twitter_hcount{:displayText=>'Tweet', :st_url=>seo_photo_path(photo), :st_title => photo.name, :st_summary => cover_description}
+            %span.st_facebook_hcount{:displayText=>'Facebook', :st_url=>seo_photo_path(photo), :st_title => photo.name, :st_summary => cover_description}
+            %span.st_plusone_hcount{:displayText=>'Google +1', :st_url=>seo_photo_path(photo), :st_title => photo.name, :st_summary => cover_description}
+            %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>seo_photo_path(photo), :st_title => photo.name, :st_summary => cover_description}
+
 .row
   .span9.offset3
     .flickr_pagination

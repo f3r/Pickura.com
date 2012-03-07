@@ -30,13 +30,15 @@
       .photo
         .nameShowPage= @cover.name
         .img
-          = image_tag(@cover.source.preview, :alt => "#{@cover.name} - #{@cover.tags.join(' ')}")
+          - photo_tags = @cover.tags.empty? ? '' : @cover.tags.join(' ')
+          - cover_description = "#{@cover.name} - #{photo_tags}"
+          = image_tag(@cover.source.preview, :alt => cover_description)
         = render :partial => 'editor/actions'
     .social_sharing
       %h3="Share this cover with your friends"
-      %span.st_twitter_hcount{:displayText=>'Tweet', :st_url=>seo_photo_path(@cover)}
-      %span.st_facebook_hcount{:displayText=>'Facebook', :st_url=>seo_photo_path(@cover)}
-      %span.st_plusone_hcount{:displayText=>'Google +1', :st_url=>seo_photo_path(@cover)}
-      %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>seo_photo_path(@cover)}
+      %span.st_twitter_hcount{:displayText=>'Tweet', :st_url=>seo_photo_path(@cover), :st_title => @cover.name, :st_summary => cover_description}
+      %span.st_facebook_hcount{:displayText=>'Facebook', :st_url=>seo_photo_path(@cover), :st_title => @cover.name, :st_summary => cover_description}
+      %span.st_plusone_hcount{:displayText=>'Google +1', :st_url=>seo_photo_path(@cover), :st_title => @cover.name, :st_summary => cover_description}
+      %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>seo_photo_path(@cover), :st_title => @cover.name, :st_summary => cover_description}
     .facebook
       .fb-comments{"data-href"=>"#{seo_photo_path(@cover)}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
