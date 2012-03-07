@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
+  background-color: #294058;
+}
+
+body.welcome {
   background-color: black;
   background-image:url(https://s3.amazonaws.com/pickura/static/background.png);
 }
