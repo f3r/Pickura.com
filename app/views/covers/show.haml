@@ -4,6 +4,10 @@
 
 - content_for(:meta) do
   %meta{:name => "description", :content => "Name: #{@cover.name}, Tags: #{@cover.tag_list.join(" ")}"}
+- content_for :javascripts do
+  = javascript_include_tag "http://w.sharethis.com/button/buttons.js"
+  :javascript
+    stLight.options({publisher: "ur-cea037fd-e637-a2ad-7782-f86cf3376519"});
 
 .row
   .span3
@@ -21,16 +25,18 @@
             = link_to "#{tag.name.titleize}", gallery_path(tag.name)
             %span.label= tag.count
 
-  .span9
+  .span9.show_cover
     .gallery_list
       .photo
         .nameShowPage= @cover.name
         .img
           = image_tag(@cover.source.preview, :alt => "#{@cover.name} - #{@cover.tags.join(' ')}")
         = render :partial => 'editor/actions'
-
-  .row
-    .photo.span7
-      .fb_comments2
-        .fb-like{"data-send"=>"true", "data-width"=>"450", "data-show-faces"=>"false", "data-colorscheme"=>"dark", "data-font"=>"lucida grande"}
+    .social_sharing
+      %h3="Share this cover with your friends"
+      %span.st_twitter_hcount{:displayText=>'Tweet', :st_url=>seo_photo_path(@cover)}
+      %span.st_facebook_hcount{:displayText=>'Facebook', :st_url=>seo_photo_path(@cover)}
+      %span.st_plusone_hcount{:displayText=>'Google +1', :st_url=>seo_photo_path(@cover)}
+      %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>seo_photo_path(@cover)}
+    .facebook
       .fb-comments{"data-href"=>"#{seo_photo_path(@cover)}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}

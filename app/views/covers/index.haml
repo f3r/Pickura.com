@@ -32,10 +32,11 @@
           .img
             - photo_tags = photo.tags.empty? ? '' : photo.tags.join(' ')
             = link_to image_tag(photo.source.preview, :class => 'cover', :alt => "#{photo.name} - #{photo_tags} Facebook Timeline Cover"), seo_photo_path(photo)
-          .hide.fb_comments
+          .hide.social_sharing
             %span.st_twitter_hcount{:displayText=>'Tweet', :st_url=>seo_photo_path(photo)}
             %span.st_facebook_hcount{:displayText=>'Facebook', :st_url=>seo_photo_path(photo)}
-
+            %span.st_plusone_hcount{:displayText=>'Google +1', :st_url=>seo_photo_path(photo)}
+            %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>seo_photo_path(photo)}
 .row
   .span9.offset3
     .flickr_pagination

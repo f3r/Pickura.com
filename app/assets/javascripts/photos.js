@@ -30,9 +30,9 @@
   // Sharing buttons
   $('.photo').hover(
     function() {
-      $(this).children(".fb_comments").show();
+      $(this).children(".social_sharing").show();
     },
     function() {
-      $(this).children(".fb_comments").hide();
+      $(this).children(".social_sharing").hide();
     }
   );
