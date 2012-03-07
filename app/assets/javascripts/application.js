@@ -17,3 +17,21 @@
 //= require best_in_place
 //= require twitter/bootstrap
 //= require_tree .
+
+// Follow us on Twitter Button
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+$(document).ready( function(){
+    $('#countdown-hide').click(function () {
+      $('#countdown').slideUp(1500);
+    })
+    
+    $("#time").countdown({
+      "date" : "march 15, 2012"
+    });
+    
+    // TODO: Finish the email notification logic
+    // $('#emailBtn').click(function() {
+    // })
+    
+});      

@@ -38,8 +38,43 @@
                     = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)
 
     .container
+      .alert.fade.in#countdown{:style => "margin-left:10px"}
+        .close#countdown-hide
+          %a{:href =>"#"} x
+        %strong{:style => "line-height: 28px; font-size: 21px;"} New Features Added Weekly!
+        .pull-right
+          // TODO: Finish the email notification stuff
+          / %a{"data-toggle"=>"modal", :href=>"#mailModal", :style => "vertical-align:top",:class =>"btn btn-success"}
+          /   %i.icon-envelope.icon-white
+          /   Notify me on this Update!
+          %a{:href=>"https://twitter.com/pickura",:class=>"twitter-follow-button","data-show-count"=>"false","data-size"=>"large"}Follow @pickura
+        %br
+        Next update in
+        #time{:style => "display:inline; line-height: 27px; margin-right:12px"}
+        
       = content_for?(:main) ? yield(:main) : yield
       
+
+      // TODO: Finish the email notification stuff
+      /
+      / .modal#mailModal.hide.fade
+      /   .modal-header
+      /     %a{:class=>"close", "data-dismiss"=>"modal"}×
+      /     %h3 Automatic Update Notification
+      /   .modal-body
+      /     %form#emailForm
+      /       .control-group
+      /         .controls
+      /           .input-prepend
+      /             %span{:class=>"add-on"}
+      /               %i{:class=>"icon-envelope"}
+      /             %input{:class=>"span3", :id=>"inputIcon", :type=>"text", :placeholder => "E.g. user@pickura.com"}
+      /     .pull-right{:style => "margin-top:-51px"}
+      /       %i{:style => "font-size:10px"} *And don't worry, we also hate spam :)
+      /   .modal-footer
+      /     %a{:href=>"#", :class => "btn btn-primary", :style => "margin-right:180px", :id => "emailBtn"} Save changes
+      /     %a{"data-toggle"=>"modal", :href=>"#mailModal", :class => "btn"} Close
+
     = javascript_include_tag "application"
     - if Rails.env.production?
       :javascript
