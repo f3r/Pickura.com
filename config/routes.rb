@@ -2,7 +2,7 @@ Covers::Application.routes.draw do
   # Redirect http://pickura.com to http://www.pickura.com
   constraints(:host => /^pickura.com/) do
     root :to => redirect("http://www.pickura.com")
-    match '/*path', :to => redirect {|params| "http://www.pickura.com/#{params[:path]}"}
+    match '/*path', :to => redirect {|params, req| "http://www.pickura.com/#{params[:path]}"}
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
