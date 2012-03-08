@@ -1,7 +1,5 @@
 class CoversController < ApplicationController
   def index
-    params[:tags] = params[:id]
-    params[:id] = nil
     @photos      = Photo.search(params)
     @tags        = Photo.relevant_tags
     @current_tag = params[:tags]
