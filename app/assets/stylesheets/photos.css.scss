@@ -27,6 +27,7 @@
     padding:15px;
     border-bottom: 4px solid #000;
     border-right: 4px solid #000;
+    height:275px;
 
     &:hover {
     }
@@ -63,16 +64,18 @@
     }
         
     .social_sharing {
-      background-color: #eee;
-      border-bottom: 2px solid #000;
-      border-right: 2px solid #000;
-      height: 25px;
-      margin-left: 10px;
-      margin-top: -33px;
-      padding: 8px 5px 5px;
-      position: absolute;
+      left: 10px;
+      position: relative;
       text-align: center;
+      top: -35px;
       z-index: 999;
+      .content {
+        padding: 8px 5px 6px;
+        background-color: #eee;
+        border-bottom: 2px solid #000;
+        border-right: 2px solid #000;
+        position:absolute;
+      }
     }
   }
   img.cover {
@@ -83,6 +86,10 @@
 
 .show_cover {
   // For the show photo page (no more hiding)
+  
+  .photo {
+    height:330px;
+  }
 
   .social_sharing {
     background-color: #eee;
@@ -289,26 +296,18 @@
       margin-top: 39px;
       font-style: italic;
     }
-    .category {
+	  .category {
       display: inline;
       vertical-align:middle;
       position: absolute;
       margin-top: 73px;
-      font-style: italic;     
-    }
-    .downloads {
-      display: inline;
-      vertical-align:middle;
-      position: absolute;
-      margin-top: 73px;
-      font-style: italic;
-      margin-left: 260px;
-    }
-    .watermark {
+      font-style: italic;	    
+	  }
+  	.watermark {
       display: inline;
       float: right;
       font-style: italic;
-      margin-top: 73px;
+      margin-top: 78px;
       right: 63px;
       vertical-align: bottom;
       label {
