@@ -22,7 +22,7 @@
       %ul.gallery_tags.tags
         - @tags.each do |tag|
           %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
-            = link_to "#{tag.name.titleize}", gallery_path(tag.name)
+            = link_to "#{tag.name.titleize}", gallery_list_path(tag.name)
             %span.label= tag.count
   .span9
     .gallery_list
