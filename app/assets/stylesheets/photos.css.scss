@@ -46,14 +46,6 @@
       width:80%;
       float:left;
     }
-
-    .nameShowPage {
-      font-size: 24px;
-      margin-bottom: 14px;
-      font-color: #444;
-      width:80%;
-      float:left;
-    }
     
     .download_count {
       font-size:11px;
@@ -89,6 +81,17 @@
   
   .photo {
     height:330px;
+    .name {
+      float: left;
+      width: 80%;
+      margin:0;
+      h1 {
+        font-size: 24px;
+        font-weight: normal;
+        line-height: 100%;
+        margin: 0 0 10px 0;
+      }
+    }
   }
 
   .social_sharing {

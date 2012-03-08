@@ -13,7 +13,8 @@
   .span9.pull-right.show_cover
     .gallery_list
       .photo
-        %h1.nameShowPage= @cover.name
+        .name
+          %h1= @cover.name
         .download_count
           <i class="icon-download"></i>
           = @cover.download_count

@@ -13,8 +13,8 @@ Covers::Application.routes.draw do
     end
   end
 
-  match 'gallery(/:tags)'     => 'covers#index',          :as => :gallery
-  match '/:id'                => 'covers#show',           :as => :gallery_show, :constraints => lambda{|req| req["id"].include? "facebook-timeline-cover" }
+  match 'categories(/:tags)'  => 'covers#index',          :as => :gallery
+  match 'gallery/:id'         => 'covers#show',           :as => :gallery_show
   match 'most-popular'        => 'covers#most_popular',   :as => :gallery_popular
   match 'editors-pick'        => 'covers#editor_pick',    :as => :gallery_editor_pick
   match 'cover/:id/download'  => 'editor#download',       :as => :download_cover
