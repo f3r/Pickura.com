@@ -38,19 +38,20 @@
                     = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)
 
     .container
-      .alert.fade.in#countdown{:style => "margin-left:10px"}
-        .close#countdown-hide
-          %a{:href =>"#"} x
-        %strong{:style => "line-height: 28px; font-size: 21px;"} New Features Added Weekly!
-        .pull-right
-          // TODO: Finish the email notification stuff
-          / %a{"data-toggle"=>"modal", :href=>"#mailModal", :style => "vertical-align:top",:class =>"btn btn-success"}
-          /   %i.icon-envelope.icon-white
-          /   Notify me on this Update!
-          %a{:href=>"https://twitter.com/pickura",:class=>"twitter-follow-button","data-show-count"=>"false","data-size"=>"large"}Follow @pickura
-        %br
-        Next update in
-        #time{:style => "display:inline; line-height: 27px; margin-right:12px"}
+      - if @current_controller != "home"
+        .alert.fade.in#countdown{:style => "margin-left:10px"}
+          .close#countdown-hide
+            %a{:href =>"#"} x
+          %strong{:style => "line-height: 28px; font-size: 21px;"} New Features Added Weekly!
+          .pull-right
+            // TODO: Finish the email notification stuff
+            / %a{"data-toggle"=>"modal", :href=>"#mailModal", :style => "vertical-align:top",:class =>"btn btn-success"}
+            /   %i.icon-envelope.icon-white
+            /   Notify me on this Update!
+            %a{:href=>"https://twitter.com/pickura",:class=>"twitter-follow-button","data-show-count"=>"false","data-size"=>"large"}Follow @pickura
+          %br
+          Next update in
+          #time{:style => "display:inline; line-height: 27px; margin-right:12px"}
         
       = content_for?(:main) ? yield(:main) : yield
       
