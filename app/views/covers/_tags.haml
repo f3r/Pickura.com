@@ -9,5 +9,5 @@
   %ul.gallery_tags.tags
     - @tags.each do |tag|
       %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
-        = link_to "#{tag.name.titleize}", gallery_list_path(tag.name), :title => "#{tag.name.titleize} Facebook covers"
+        = link_to "#{tag.name.titleize}", gallery_path(tag.name), :title => "#{tag.name.titleize} Facebook covers"
         %span.label= tag.count

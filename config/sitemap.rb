@@ -39,6 +39,6 @@ SitemapGenerator::Sitemap.create do
   
   # Add all tag pages
   Photo.tag_counts_on(:tags).each do |tag|
-    add gallery_list_path(tag.name)
+    add gallery_path(tag.name)
   end  
 end
