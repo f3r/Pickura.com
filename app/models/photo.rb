@@ -41,8 +41,8 @@ class Photo < ActiveRecord::Base
   end
 
   # Returns a collection of tags (with memcached)
-  def self.relevant_tags(order = 'count desc', at_least = '10')
-    Photo.tag_counts(:order => order, :at_least => at_least)
+  def self.relevant_tags(order = 'count desc', limit = nil)
+    Photo.tag_counts(:order => order, :at_least => 10, :limit => limit)
   end
 
   def move_watermark(corner = nil)

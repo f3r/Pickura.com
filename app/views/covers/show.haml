@@ -10,28 +10,13 @@
     stLight.options({publisher: "ur-cea037fd-e637-a2ad-7782-f86cf3376519"});
 
 .row
-  .span3
-    .tag_list
-      .tag_title Top Covers
-      %ul.filters.tags
-        %li.tag{:class => @most_popular? 'active' : ''}
-          = link_to "Most Popular", gallery_popular_path
-        %li.tag{:class => @editor_pick? 'active' : ''}
-          = link_to "Editor's Pick", gallery_editor_pick_path
-      .tag_title Gallery Tags
-      %ul.gallery_tags.tags
-        - @tags.each do |tag|
-          %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
-            = link_to "#{tag.name.titleize}", gallery_list_path(tag.name)
-            %span.label= tag.count
-
-  .span9.show_cover
+  .span9.pull-right.show_cover
     .gallery_list
       .photo
-        .nameShowPage= @cover.name
+        %h1.nameShowPage= @cover.name
         .download_count
           <i class="icon-download"></i>
-          =@cover.download_count
+          = @cover.download_count
           Downloads
         .img
           - photo_tags = @cover.tags.empty? ? '' : @cover.tags.join(' ')
@@ -46,3 +31,5 @@
       %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>gallery_show_path(@cover), :st_title => @cover.name, :st_summary => cover_description}
     .facebook
       .fb-comments{"data-href"=>"#{gallery_show_path(@cover)}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
+  .span3.pull-left
+    = render 'tags'

@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(:version => 20120308023207) do
 
+  create_table "custom_covers", :force => true do |t|
+    t.string   "source"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.string   "source"

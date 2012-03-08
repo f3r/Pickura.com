@@ -11,19 +11,7 @@
 
 .row
   .span3
-    .tag_list
-      .tag_title Top Covers
-      %ul.filters.tags
-        %li.tag{:class => @most_popular? 'active' : ''}
-          = link_to "Most Popular", gallery_popular_path
-        %li.tag{:class => @editor_pick? 'active' : ''}
-          = link_to "Editor's Pick", gallery_editor_pick_path
-      .tag_title Gallery Tags
-      %ul.gallery_tags.tags
-        - @tags.each do |tag|
-          %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
-            = link_to "#{tag.name.titleize}", gallery_list_path(tag.name)
-            %span.label= tag.count
+    = render 'tags'
   .span9
     .gallery_list
       - @photos.each do |photo|

@@ -29,7 +29,7 @@ class CoversController < ApplicationController
   
   def show
     @cover = Photo.find(params[:id])
-    @tags  = Photo.relevant_tags
+    @tags  = Photo.relevant_tags('count desc', 17)
     @title = @cover.name
     @cover.increase_viewCount
   end

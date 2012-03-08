@@ -1,0 +1,13 @@
+.tag_list
+  .tag_title Top Covers
+  %ul.filters.tags
+    %li.tag{:class => @most_popular? 'active' : ''}
+      = link_to "Most Popular", gallery_popular_path, :title => "Most popular Facebook covers"
+    %li.tag{:class => @editor_pick? 'active' : ''}
+      = link_to "Editor's Pick", gallery_editor_pick_path, :title => "Our choices for your timeline"
+  .tag_title Gallery Tags
+  %ul.gallery_tags.tags
+    - @tags.each do |tag|
+      %li.tag{:class => (@current_tag == tag.name)? 'active' : ''}
+        = link_to "#{tag.name.titleize}", gallery_list_path(tag.name), :title => "#{tag.name.titleize} Facebook covers"
+        %span.label= tag.count
