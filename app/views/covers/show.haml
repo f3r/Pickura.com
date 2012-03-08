@@ -22,16 +22,15 @@
         .img
           - photo_tags = @cover.tags.empty? ? '' : @cover.tags.join(' ')
           - cover_description = "#{@cover.name} - #{photo_tags}"
-          - permalink = url_for(:controller => :covers, :action => :show, :id => @cover, :only_path => false)
           = image_tag(@cover.source.preview, :alt => cover_description)
         = render :partial => 'editor/actions'
-    .social_sharing
+    .social_sharing    
       %h3="Share this cover with your friends"
-      %span.st_twitter_hcount{:displayText=>'Tweet', :st_url => permalink, :st_title => @cover.name, :st_summary => cover_description}
-      %span.st_facebook_hcount{:displayText=>'Facebook', :st_url => permalink, :st_title => @cover.name, :st_summary => cover_description}
-      %span.st_plusone_hcount{:displayText=>'Google +1', :st_url => permalink, :st_title => @cover.name, :st_summary => cover_description}
-      %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url => permalink, :st_title => @cover.name, :st_summary => cover_description}
+      %span.st_twitter_hcount{:displayText=>'Tweet', :st_url => permalink(@cover), :st_title => @cover.name, :st_summary => cover_description}
+      %span.st_facebook_hcount{:displayText=>'Facebook', :st_url => permalink(@cover), :st_title => @cover.name, :st_summary => cover_description}
+      %span.st_plusone_hcount{:displayText=>'Google +1', :st_url => permalink(@cover), :st_title => @cover.name, :st_summary => cover_description}
+      %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url => permalink(@cover), :st_title => @cover.name, :st_summary => cover_description}
     .facebook
-      .fb-comments{"data-href"=>"#{permalink}", "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
+      .fb-comments{"data-href"=>permalink(@cover), "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
   .span3.pull-left
     = render 'tags'

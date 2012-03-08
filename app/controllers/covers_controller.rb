@@ -1,13 +1,13 @@
 class CoversController < ApplicationController
   def index
-    @photos      = Photo.search(params)
+    @covers      = Photo.search(params)
     @tags        = Photo.relevant_tags
     @current_tag = params[:tags]
     @title = @current_tag.titleize if @current_tag
   end
   
   def most_popular
-    @photos       = Photo.search(:page => params[:page], :per_page => params[:per_page], :sorting => 'counter DESC')
+    @covers       = Photo.search(:page => params[:page], :per_page => params[:per_page], :sorting => 'counter DESC')
     @tags         = Photo.relevant_tags
     @current_tag  = params[:tags]
     @most_popular = true
@@ -17,7 +17,7 @@ class CoversController < ApplicationController
   end
  
   def editor_pick
-    @photos      = Photo.search(:page => params[:page], :per_page => params[:per_page], 
+    @covers      = Photo.search(:page => params[:page], :per_page => params[:per_page], 
                     :tags => 'featured', :tag_type => :categories, :sorting => 'updated_at DESC')
     @tags        = Photo.relevant_tags
     @current_tag = params[:tags]
@@ -25,6 +25,15 @@ class CoversController < ApplicationController
     @title = @current_tag.titleize if @current_tag
     
     render :index
+  end
+
+  def sharing_url
+    sharing_url = params[:sharing_url]      
+    sharing_url =~ /^([-\d. ()]*)(.*)$/
+    id = $1.to_i
+    cover = Photo.find(id)
+    # track redirects?
+    redirect_to gallery_show_path(cover)
   end
   
   def show
