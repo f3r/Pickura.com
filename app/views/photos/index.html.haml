@@ -12,6 +12,10 @@
         .name= best_in_place photo, :name
         .tags= best_in_place photo, :tag_list, {:nil => "click to add tags"}
         .category= best_in_place photo, :category_list, {:nil => "click to add categories"}
+        .downloads
+          Downloads:
+          = best_in_place photo, :download_seed_fake, {:nil => "click to modify the downloads fake base"}
+
 
         .watermark
           = label :photo_watermark_position, 'Watermark:'

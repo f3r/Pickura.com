@@ -289,18 +289,26 @@
       margin-top: 39px;
       font-style: italic;
     }
-	  .category {
+    .category {
       display: inline;
       vertical-align:middle;
       position: absolute;
       margin-top: 73px;
-      font-style: italic;	    
-	  }
-  	.watermark {
+      font-style: italic;     
+    }
+    .downloads {
+      display: inline;
+      vertical-align:middle;
+      position: absolute;
+      margin-top: 73px;
+      font-style: italic;
+      margin-left: 260px;
+    }
+    .watermark {
       display: inline;
       float: right;
       font-style: italic;
-      margin-top: 78px;
+      margin-top: 73px;
       right: 63px;
       vertical-align: bottom;
       label {
