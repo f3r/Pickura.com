@@ -8,5 +8,8 @@
         .image
           = image_tag current_user.avatar.url, :id => 'user_avatar'#, :height => 125, :width => 125
       
-  = render :partial => 'editor_sidebar'
-  = #render :partial => 'actions'
+  = #render :partial => 'choose_photos'
+  
+  %a#generate_button.btn.btn-primary.btn-large{:href => "#{user_omniauth_authorize_path(:facebook)}", 'data-loading-text' => 'Authenticating with Facebook...'}
+    %i{:class => "icon-upload icon-white"}
+    Upload to Facebook

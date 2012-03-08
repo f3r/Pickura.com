@@ -74,14 +74,14 @@ class Photo < ActiveRecord::Base
     end
   end
 
-  def increase_viewCount
+  def increase_view_count!
     ActiveRecord::Base.transaction do
       self.counter = self.counter + 1
       self.save!
     end
   end
 
-  def increase_downloadCount
+  def increase_download_count!
     ActiveRecord::Base.transaction do
       self.counter_downloads = self.counter_downloads + 1
       self.save!

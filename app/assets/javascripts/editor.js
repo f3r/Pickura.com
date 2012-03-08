@@ -1,6 +1,5 @@
  var Editor = {
   initialize: function(){
-  	console.log('initializing');
   	$('.sticker').click(function(){
         Editor.newSticker($(this).attr('src'));
   	});
@@ -55,3 +54,9 @@ var Picker = {
 }
 
 Editor.initialize();
+
+$(function(){
+  $('.generate-link').click(function(){
+    $('#generating_modal').modal('show');
+  });
+});

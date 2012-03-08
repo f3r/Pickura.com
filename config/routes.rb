@@ -31,6 +31,9 @@ Covers::Application.routes.draw do
   post  'subscribe'             => 'home#subscribe',        :as => :subscribe
   post  'unsubscribe'           => 'home#unsubscribe',      :as => :unsubscribe
 
-
+  get   'creator'               => 'creator#index'
+  get   'creator/echo'          => 'creator#show'
+  get  'creator/new'            => 'creator#new',           :as => :generate_cover
+  get  'creator/:id'            => 'creator#show',          :as => :creator_cover
   root :to => 'home#index'
 end

@@ -6,7 +6,7 @@ class EditorController < ApplicationController
 
   def download
     #redirect_to @cover.source.branded.url, :type => 'image/jpeg'
-    @cover.increase_downloadCount
+    @cover.increase_download_count!
     file = open(@cover.source.branded.url)
     send_file file, :type => 'image/jpeg', :filename => File.basename(@cover.source.url)
   end

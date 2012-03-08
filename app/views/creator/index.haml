@@ -1,0 +1,45 @@
+#creator
+  .title_creator
+    CREATE A CUSTOM Facebook Cover
+  .row
+    .span10.offset1
+      .gallery_list
+        -# @models.each do |model|
+        - model = {:title => 'Echo', :name => :echo, :sample => 'echo.jpg'}
+        .photo
+          .name= model[:title]
+          .img
+            = link_to image_tag("creator/" + model[:sample], :class => 'cover'), generate_cover_path(:model => model[:name]), :class => 'generate-link'
+
+        - model = {:title => 'Museum Wall', :name => :soon, :sample => 'array.png'}
+        .photo
+          .name= model[:title]
+          .img
+            = link_to image_tag("creator/" + model[:sample], :class => 'cover'), '#'
+            .coming-soon.hover
+              .msg Coming soon...
+      
+        - model = {:title => 'Stack of Polaroids', :name => :soon, :sample => 'stack.jpg'}
+        .photo
+          .name= model[:title]
+          .img
+            = link_to image_tag("creator/" + model[:sample], :class => 'cover'), '#'
+            .coming-soon.hover
+              .msg Coming soon...
+              
+#generating_modal.modal.hide
+  .modal-header
+    %a.close{'data-dismiss' => 'modal'} x
+    %h2 Generating
+  .modal-body
+    .row-fluid
+      .msg.span8
+        %p We are currently generating your new custom cover
+        %p In the meantime, why not Like us on Facebook?
+        .upload-bar
+          = image_tag 'loading30.gif'
+      .modal-right.span4
+        %h3 Like us:
+        .fb-widget
+          .fb-like{"data-href"=> "http://www.pickura.com","data-send"=>"false", "data-width"=>"100", 'data-layout' => 'box_count', "data-show-faces"=>"false", "data-font"=>"lucida grande"}
+       

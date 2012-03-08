@@ -1,3 +1,12 @@
+.title_creator {
+  width:840px;
+  text-align:center;
+  font-family: StreetHumoresque;
+  font-size: 24pt;  
+  color: #fff;
+  margin-bottom: 20px;
+}
+
 .content .editor {
   .form-actions a.btn {
     width: 180px;
@@ -38,6 +47,36 @@
   }
   
   .step2 {
+    display: block;
+  }
+}
+
+#creator {
+  .photo {
+    .img {
+      position: relative;
+    }
+    .hover {
+      /*background: url("../images/common/modal-background.png") repeat scroll 0 0 transparent;*/
+      background-color: black;
+      opacity: 0.8;
+      display: none;
+      height: 246px;
+      position: absolute;
+      top: 0;
+      width: 664px;
+      z-index: 1000;
+      .msg {
+        color: #FFFFFF;
+        font-size: 25px;
+        font-style: italic;
+        font-weight: 600;
+        text-align: center;
+        line-height: 246px;
+      }
+    }
+  }
+  .photo:hover .hover {
     display: block;
   }
 }

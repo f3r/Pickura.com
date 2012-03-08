@@ -2,4 +2,5 @@
   - 4.times do |i|
     .photo-select{:id => "box_#{i}"}
       = link_to 'Choose a photo', photo_picker_path(:box => i), :remote => true, :class => 'thumb'
+      = hidden_field_tag 'url[]'
 #fb_photo_picker
