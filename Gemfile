@@ -19,6 +19,7 @@ gem 'will_paginate', '~> 3.0'   # Pagination
 gem 'sitemap_generator'         # https://github.com/kjvarga/sitemap_generator
 
 gem 'acts-as-taggable-on',  :path => "vendor/gems/acts-as-taggable-on-2.2.2" # '~> 2.2.2'  # handle tags for photos
+gem "friendly_id", "~> 4.0.1"
 
 group :development, :test do
   gem 'mysql2'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120307210144) do
+ActiveRecord::Schema.define(:version => 20120308023207) do
 
   create_table "photos", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(:version => 20120307210144) do
     t.integer  "counter",            :default => 0
     t.integer  "counter_downloads",  :default => 0
     t.integer  "download_seed_fake", :default => 0
+    t.string   "slug"
   end
+
+  add_index "photos", ["slug"], :name => "index_photos_on_slug", :unique => true
 
   create_table "pictures", :force => true do |t|
     t.string   "title"

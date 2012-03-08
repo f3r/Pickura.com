@@ -4,6 +4,12 @@ class Photo < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :categories
 
+  extend FriendlyId
+  friendly_id :name_suffix, use: :slugged
+  def name_suffix
+    "#{name}-facebook-timeline-cover"
+  end
+
   before_validation :default_watermark
   before_save :recreate_watermark
 

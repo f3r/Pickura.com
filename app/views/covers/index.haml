@@ -36,12 +36,12 @@
           .img
             - photo_tags = photo.tags.empty? ? '' : photo.tags.join(' ')
             - cover_description = "#{photo.name} - #{photo_tags}"
-            = link_to image_tag(photo.source.preview, :class => 'cover', :alt => cover_description), seo_photo_path(photo)
+            = link_to image_tag(photo.source.preview, :class => 'cover', :alt => cover_description), gallery_show_path(photo)
           .hide.social_sharing
-            %span.st_twitter_hcount{:displayText=>'Tweet', :st_url=>seo_photo_path(photo), :st_title => photo.name, :st_summary => cover_description}
-            %span.st_facebook_hcount{:displayText=>'Facebook', :st_url=>seo_photo_path(photo), :st_title => photo.name, :st_summary => cover_description}
-            %span.st_plusone_hcount{:displayText=>'Google +1', :st_url=>seo_photo_path(photo), :st_title => photo.name, :st_summary => cover_description}
-            %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>seo_photo_path(photo), :st_title => photo.name, :st_summary => cover_description}
+            %span.st_twitter_hcount{:displayText=>'Tweet', :st_url=>gallery_show_path(photo), :st_title => photo.name, :st_summary => cover_description}
+            %span.st_facebook_hcount{:displayText=>'Facebook', :st_url=>gallery_show_path(photo), :st_title => photo.name, :st_summary => cover_description}
+            %span.st_plusone_hcount{:displayText=>'Google +1', :st_url=>gallery_show_path(photo), :st_title => photo.name, :st_summary => cover_description}
+            %span.st_pinterest_hcount{:displayText=>'Pinterest', :st_url=>gallery_show_path(photo), :st_title => photo.name, :st_summary => cover_description}
 
 .row
   .span9.offset3
