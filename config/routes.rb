@@ -5,6 +5,9 @@ Covers::Application.routes.draw do
     match '/*path', :to => redirect {|params, req| "http://www.pickura.com/#{params[:path]}"}
   end
 
+  match "/public/sitemap_index.xml.gz" => redirect("https://s3.amazonaws.com/pickura/sitemaps/sitemap_index.xml.gz"), :as => :sitemap_index
+
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :photos do

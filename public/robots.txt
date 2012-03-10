@@ -3,4 +3,4 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-Agent: *
 # Disallow: /
-Sitemap: https://s3.amazonaws.com/pickura/sitemaps/sitemap_index.xml.gz
+Sitemap: http://www.pickura.com/public/sitemap_index.xml.gz
