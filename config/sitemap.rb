@@ -4,9 +4,9 @@ require 'sitemap_generator'
 # Configuration
 SitemapGenerator::Sitemap.default_host  = "http://www.pickura.com"
 SitemapGenerator::Sitemap.public_path   = 'tmp/'
-SitemapGenerator::Sitemap.adapter       = SitemapGenerator::WaveAdapter.new
 SitemapGenerator::Sitemap.sitemaps_host = "https://s3.amazonaws.com/pickura/"
-SitemapGenerator::Sitemap.sitemaps_path = 'sitemap/'
+SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+SitemapGenerator::Sitemap.adapter       = SitemapGenerator::WaveAdapter.new
 
 # Links creation logic
 SitemapGenerator::Sitemap.create do  
