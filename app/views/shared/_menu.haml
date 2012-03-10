@@ -1,0 +1,24 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.i-bar
+        %span.i-bar
+        %span.i-bar
+      %a.brand{:href => "/", :style => "padding-bottom:9px"}= image_tag("logo.png")
+      .container.nav-collapse
+        %ul.nav
+          %li= link_to "Gallery", gallery_path
+          %li= link_to "Most Popular", gallery_popular_path
+          %li= link_to "Editor's pick", gallery_editor_pick_path
+          - if user_signed_in? && current_user.admin?
+            %li= link_to "Admin Console", photos_path
+        %ul.nav.pull-right
+          - if user_signed_in?
+            %li= link_to "Hello #{current_user.email}", "/profile", :style => "color:#555"
+            %li= link_to 'Sign out', destroy_user_session_path, :method => :delete, :style => "font-weight:bold;"
+            %li{:style => "height:40px"}= image_tag(current_user.avatar.thumb.url)
+          - elsif @current_controller != "home"
+            %li
+              .menu_facebook
+                = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)

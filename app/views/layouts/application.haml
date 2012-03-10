@@ -14,28 +14,7 @@
     #fb-root
     :javascript
       (function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=331426256899594"; fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.i-bar
-            %span.i-bar
-            %span.i-bar
-          %a.brand{:href => "/", :style => "padding-bottom:9px"}= image_tag("logo.png")
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Gallery", gallery_path
-              %li= link_to "Most Popular", gallery_popular_path
-              %li= link_to "Editor's pick", gallery_editor_pick_path
-            %ul.nav.pull-right
-              - if user_signed_in?
-                %li= link_to "Hello #{current_user.email}", "/profile", :style => "color:#555"
-                %li= link_to 'Sign out', destroy_user_session_path, :method => :delete, :style => "font-weight:bold;"
-                %li{:style => "height:40px"}= image_tag(current_user.avatar.thumb.url)
-              - elsif @current_controller != "home"
-                %li
-                  .menu_facebook
-                    = link_to (image_tag "fb_login.png"), user_omniauth_authorize_path(:facebook)
+    = render :partial => 'shared/menu'
 
     .container
       - if @current_controller != "home" && cookies[:hide_countdown] != "true"
