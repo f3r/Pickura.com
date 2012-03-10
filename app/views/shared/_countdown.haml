@@ -1,0 +1,12 @@
+.alert.fade.in#countdown{:style => "margin-left:10px"}
+  %a.close{:href =>"#", "data-dismiss" => "alert"} &times;
+  %strong{:style => "line-height: 28px; font-size: 21px;"} New Features Added Weekly!
+  .pull-right
+    %button{"data-toggle"=>"modal", :href=>"#mailModal", :style => "vertical-align:top", :class =>"btn btn-success", :id => "mailModalBtn"}
+      %i.icon-envelope.icon-white
+      %span.text
+        Notify me on this Update!
+    %a{:href=>"https://twitter.com/pickura",:class=>"twitter-follow-button","data-show-count"=>"false","data-size"=>"large"}Follow @pickura
+  %br
+  Next update in
+  #time{:style => "display:inline; line-height: 27px; margin-right:12px"}

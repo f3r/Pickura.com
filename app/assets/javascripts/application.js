@@ -22,16 +22,15 @@
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
 $(document).ready( function(){
-    $('#countdown-hide').click(function () {
-      $('#countdown').slideUp(1500);
-    })
-    
+
+    var date = new Date(2012,02,15);
+
     $("#time").countdown({
-      "date" : "march 15, 2012"
+      "date" : date
     });
-    
-    // TODO: Finish the email notification logic
-    // $('#emailBtn').click(function() {
-    // })
+
+    $('#countdown .close').click(function () {
+      document.cookie = 'hide_countdown=true; expires='+ date +'; path=/'
+    })
     
 });      

@@ -1,0 +1,18 @@
+.modal#mailModal.hide.fade
+  = form_tag subscribe_path, :remote => true, :id => "emailForm" do
+    .modal-header
+      %a{:class=>"close", "data-dismiss"=>"modal"}×
+      %h3 Automatic Update Notification
+    .modal-body
+      .control-group
+        .controls
+          .input-prepend
+            %span{:class=>"add-on"}
+              %i{:class=>"icon-envelope"}
+            %input{:class=>"span3", :id=>"inputIcon", :type=>"text", :name => "email", :placeholder => "E.g. user@pickura.com"}
+            %span.help-inline
+            %span.note
+              *And don't worry, we also hate spam :)
+    .modal-footer
+      %button{:href=>"#", :class => "btn btn-primary", :id => "emailBtn"} Sign Up
+      %a{"data-toggle"=>"modal", :href=>"#mailModal", :class => "btn"} Cancel

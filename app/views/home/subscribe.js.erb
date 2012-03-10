@@ -1,0 +1,8 @@
+<% if !@subscriber.errors.blank? %>
+  $('#mailModal .control-group').addClass('error');
+  $('#mailModal .control-group .help-inline').html("<%= @subscriber.errors.messages.first[1].to_sentence %>");
+<% else %>
+  $('#mailModal').modal('hide');
+  $('#countdown #mailModalBtn .text').html("Subscribed!");
+  $('#countdown #mailModalBtn').attr("disabled", "disabled");
+<% end %>

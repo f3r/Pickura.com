@@ -10,4 +10,21 @@ class HomeController < ApplicationController
       render 'welcome'
     end
   end
+  
+  def subscribe
+    ip = request.env["HTTP_X_FORWARDED_FOR"]
+    @subscriber = Subscriber.new(:email => params[:email], :ip => ip)
+    respond_to do |format|
+      if @subscriber.save
+        format.js { render :layout => false }
+      else
+        format.js { render :layout => false }
+      end
+    end
+  end
+
+  # TODO: Add unsuscribe action
+  def unsubscribe
+  end
+
 end

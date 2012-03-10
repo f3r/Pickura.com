@@ -23,6 +23,8 @@ Covers::Application.routes.draw do
   match 'cover/premium'         => 'covers#premium'
   match 'editor/:id'            => 'editor#show',           :as => :editor
   match 'pick'                  => 'facebook_photos#index', :as => :photo_picker
+  post  'subscribe'             => 'home#subscribe',        :as => :subscribe
+  post  'unsubscribe'           => 'home#unsubscribe',      :as => :unsubscribe
 
 
   root :to => 'home#index'

@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308023207) do
-
-  create_table "custom_covers", :force => true do |t|
-    t.string   "source"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120309185144) do
 
   create_table "photos", :force => true do |t|
     t.string   "name"
@@ -39,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20120308023207) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "picture"
+  end
+
+  create_table "subscribers", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.string   "ip"
+    t.string   "country_code"
+    t.datetime "unsubscribed_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "taggings", :force => true do |t|
