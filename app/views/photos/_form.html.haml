@@ -22,5 +22,9 @@
     = f.label :Categories
     = f.text_field :category_list
 
+  .field
+    = f.label :Description
+    = f.text_area(:description, :cols => 100, :rows => 6)
+
   .actions
     = f.submit 'Save'

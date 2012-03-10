@@ -1,7 +1,3 @@
--# .cover_show
--#   .row.span11.title_bar
--#     .title Cover Photos
-
 - content_for(:meta) do
   %meta{:name => "description", :content => "Name: #{@cover.name}, Tags: #{@cover.tag_list.join(" ")}"}
 - content_for :javascripts do
@@ -13,19 +9,28 @@
   .span9.pull-right.show_cover
     .gallery_list
       .photo
-        .name
-          %h1= @cover.name
-        .download_count
-          <i class="icon-download"></i>
-          = @cover.download_count
-          Downloads
-        .img
-          - photo_tags = @cover.tags.empty? ? '' : @cover.tags.join(' ')
-          - cover_description = "#{@cover.name} - #{photo_tags}"
-          = image_tag(@cover.source.preview, :alt => cover_description)
-        = render :partial => 'editor/actions'
+        .row
+          .span4
+            %h1= @cover.name
+          .span2.pull-right{:style => "text-align: right;"}
+            %i.icon-download
+            = @cover.download_count
+            Downloads
+        .row
+          .span9
+            - photo_tags = @cover.tags.empty? ? '' : @cover.tags.join(' ')
+            - cover_description = "#{@cover.name} - #{photo_tags}"
+            = image_tag(@cover.source.preview, :alt => cover_description)
+        - if !@cover.description.nil?
+          .row
+            .span8.description
+              = "‟#{@cover.description}”"
+        .row
+          .span6.pull-right
+            = render :partial => 'editor/actions'
+
     .social_sharing    
-      %h3="Share this cover with your friends"
+      %h3{:style => "margin-bottom:11px"}="Share this cover with your friends"
       %span.st_twitter_hcount{:displayText=>'Tweet', :st_url => permalink(@cover), :st_title => @cover.name, :st_summary => cover_description}
       %span.st_facebook_hcount{:displayText=>'Facebook', :st_url => permalink(@cover), :st_title => @cover.name, :st_summary => cover_description}
       %span.st_plusone_hcount{:displayText=>'Google +1', :st_url => permalink(@cover), :st_title => @cover.name, :st_summary => cover_description}

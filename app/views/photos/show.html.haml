@@ -1,17 +1,21 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @photo.name
+%h1= @photo.name
 
-%p
-  %b Image:
-  = image_tag @photo.source.url(:branded)
+= image_tag @photo.source.url(:branded)
 
 %p
   %b Tags
   = @photo.tag_list
   
+%p
+  %b Categories
+  = @photo.category_list
+
+%p
+  %b Description
+  = @photo.description
+
 %p
   %b Watermark
 .waterMarkPosition

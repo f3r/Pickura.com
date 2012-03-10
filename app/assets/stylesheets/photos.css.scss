@@ -80,17 +80,23 @@
   // For the show photo page (no more hiding)
   
   .photo {
-    height:330px;
-    .name {
-      float: left;
-      width: 80%;
-      margin:0;
-      h1 {
-        font-size: 24px;
-        font-weight: normal;
-        line-height: 100%;
-        margin: 0 0 10px 0;
-      }
+    height:auto;
+    h1 {
+      font-size: 24px;
+      font-weight: normal;
+      line-height: 100%;
+      margin: 0 0 10px 0;
+    }
+    .description {
+      text-align: center;
+      color: #aaa;
+      font-style: italic;
+      font-size: 14px;
+      margin-left:20px;
+      margin-top:-6px;
+      width: 650px;
+      padding: 9px;
+      background-color: #333;
     }
   }
 
@@ -296,16 +302,24 @@
       display: inline;
       vertical-align:middle;
       position: absolute;
-      margin-top: 39px;
+      margin-top: 32px;
       font-style: italic;
     }
 	  .category {
       display: inline;
       vertical-align:middle;
       position: absolute;
-      margin-top: 73px;
-      font-style: italic;	    
+      margin-top: 54px;
+      font-style: italic;
 	  }
+    .description {
+      display: inline;
+      vertical-align:middle;
+      position: absolute;
+      margin-top: 77px;
+      font-style: italic;
+      z-index: 1000;
+    }
   	.watermark {
       display: inline;
       float: right;
@@ -319,6 +333,14 @@
         margin-right: 5px;
       }
     }
+    .edit_photo {
+      display: table;
+      float: right;
+      position: absolute;
+      right: 14px;
+      top: 46px;
+      vertical-align: top;
+    }
     .delete {
       display: table;
       float: right;
@@ -330,6 +352,14 @@
        background-color: black; 
        color: white;
       }
+    }
+    .downloads {
+      display: table;
+      float: right;
+      position: absolute;
+      right: 14px;
+      top: 23px;
+      vertical-align: top;
     }
   }
 }

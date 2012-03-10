@@ -2,6 +2,11 @@
   .span10.title_admin Listing photos
   .span2.new_photo_link= link_to "Add Photo", new_photo_path, {:class => "btn btn-primary"}
 
+  %br
+  %br
+  .flickr_pagination_admin
+    = will_paginate @photos, :container => false
+  %br  
 .row
   %ul.photo_list
     - @photos.each do |photo|
@@ -9,17 +14,27 @@
         .img
           = link_to photo.source.branded.url, :rel => "prettyPhoto[pp_gal]", :title => "#{photo.name}" do
             = image_tag photo.source.thumb, :size => "260x96"
-        .name= best_in_place photo, :name
-        .tags= best_in_place photo, :tag_list, {:nil => "click to add tags"}
-        .category= best_in_place photo, :category_list, {:nil => "click to add categories"}
+        .name
+          = best_in_place photo, :name
+        .tags
+          %b= "Tags: " unless photo.tag_list.blank?
+          = best_in_place photo, :tag_list, {:nil => "click to add tags"}
+        .category
+          %b= "Categories: " unless photo.category_list.blank?
+          = best_in_place photo, :category_list, {:nil => "click to add categories"}
+        .description
+          = truncate(photo.description, :length => 70, :omission => '... (more)')
         .downloads
           Downloads:
-          = best_in_place photo, :download_seed_fake, {:nil => "click to modify the downloads fake base"}
+          = best_in_place photo, :download_seed_fake, {:nil => "click to modify the downloads fake base", :html_attrs => {:size => 10}}
 
 
         .watermark
           = label :photo_watermark_position, 'Watermark:'
           = best_in_place photo, :watermark_position, :type => :select, :collection => watermark_positions_options
+        .edit_photo
+          = link_to edit_photo_path(photo) do
+            .btn.btn-info Edit Photo
         .delete= link_to '(Delete)',  photo_url(photo), {:remote => true, :method => :delete}
 
   %br
