@@ -31,8 +31,8 @@ SitemapGenerator::Sitemap.create do
     result.gsub!(/[ \-]+/i, '-')      # No more than one of the separator in a row.
     result.gsub!(/^\-|\-$/i, '')      # Remove leading/trailing separator.
     result.downcase!
-    url = "/gallery/#{photo.id}-#{result}-facebook-timeline-cover"
-
+    #url = "/gallery/#{photo.id}-#{result}-facebook-timeline-cover"
+    url = "/#{result}-facebook-timeline-cover"
     add(url, :lastmod => photo.updated_at, 
         :images => [{ :loc => photo.source.branded.url, :title => photo.name, :caption => photo.tag_list.join(" ") }])
   end
