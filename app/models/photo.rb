@@ -4,6 +4,8 @@ class Photo < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :categories
 
+  include Tanker # Search engine
+
   extend FriendlyId
   friendly_id :name_suffix, use: :slugged
   def name_suffix
@@ -11,12 +13,25 @@ class Photo < ActiveRecord::Base
   end
 
   before_validation :default_watermark
-  before_save :recreate_watermark
-
-  after_save :expire_cache
-  after_destroy :expire_cache
+  before_save       :recreate_watermark
+  after_save        :expire_cache, :update_tank_indexes
+  after_destroy     :expire_cache, :delete_tank_indexes
 
   WM_POSITIONS = {:south_east => 'Bottom Right', :north_east => 'Top Right', :north_west => 'Top Left', :south_west => 'Bottom Left'}
+
+  tankit 'photo_index' do
+    indexes :name
+    indexes :description
+    indexes :id
+    indexes :tag_list     # Array of Tags
+    indexes :counter
+    indexes :counter_downloads
+  end
+
+  # Note! Will Paginate pagination, thanks mislav!
+  def self.per_page
+    15
+  end
 
   # Returns a collection of tags (with memcached)
   #  [page            Integer       Page number of the collection
@@ -24,7 +39,6 @@ class Photo < ActiveRecord::Base
   #  [tags]           String/Array  Tags to search
   #  [sorting]        String        Column to sort the collection
   #  [search_by_tag]  Boolean       If true it will search on :tags, otherwise on :categories
-  
   def self.search(opts = {})
     opts[:page]     ||= 1
     opts[:per_page] ||= 15

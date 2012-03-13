@@ -33,4 +33,9 @@ $(document).ready( function(){
       document.cookie = 'hide_countdown=true; expires='+ date +'; path=/'
     })
     
+    $('#search-form').submit(function(){
+    	document.location = "http://www.pickura.com/search/" + $('#query').val();
+    	// document.location = "http://localhost:3000/search/" + $('#query').val();
+    	return false;
+    })
 });      

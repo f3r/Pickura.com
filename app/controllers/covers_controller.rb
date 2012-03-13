@@ -5,6 +5,13 @@ class CoversController < ApplicationController
     @current_tag = params[:tags]
     @title = @current_tag.titleize if @current_tag
   end
+
+  def search
+    @covers = Photo.search_tank(params[:query])
+    @tags   = Photo.relevant_tags
+
+    render :index
+  end
   
   def most_popular
     @covers       = Photo.search(:page => params[:page], :per_page => params[:per_page], :sorting => 'counter DESC, updated_at DESC, id DESC')

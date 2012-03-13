@@ -17,6 +17,7 @@ Covers::Application.routes.draw do
   end
 
   match 'categories(/:tags)'    => 'covers#index',          :as => :gallery
+  match '/search/:query'        => 'covers#search',         :as => :search
   match '/:id'                  => 'covers#show',           :as => :gallery_show, :constraints => lambda{|req| req["id"].include? "facebook-timeline-cover" }
   match 'gallery/:sharing_url'  => 'covers#sharing_url',    :as => :gallery_sharing_url
   match 'most-popular'          => 'covers#most_popular',   :as => :gallery_popular
