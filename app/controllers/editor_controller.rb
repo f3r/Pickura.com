@@ -16,6 +16,10 @@ class EditorController < ApplicationController
   end
 
   def find_cover
-    @cover = Photo.find(params[:id])
+    if params[:custom_cover_id]
+      @cover = CustomCover.find(params[:custom_cover_id])
+    else
+      @cover = Photo.find(params[:id])
+    end
   end
 end
