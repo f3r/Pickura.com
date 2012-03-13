@@ -92,6 +92,11 @@ class Photo < ActiveRecord::Base
     count = counter_downloads + download_seed_fake
   end
 
+  def self.random
+    offset = rand(Photo.count)
+    rand_record = Photo.first(:offset => offset)
+  end
+  
   protected
 
   def expire_cache

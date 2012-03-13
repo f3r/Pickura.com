@@ -10,10 +10,6 @@
     = render 'tags'
   .span9
     .gallery_list
-      - if !flash[:notice].blank?
-        .alert.alert-error{:style => "margin-top: 10px"}
-          %a.close{"data-dismiss"=>"alert"} ×
-          %strong= flash[:notice]
       - @covers.each do |cover|
         .photo
           .name= cover.name
@@ -34,7 +30,4 @@
 
 .row
   .span9.offset3
-    .flickr_pagination
-      = will_paginate @covers, :container => false
-      .page_info
-        = page_entries_info @covers
+    %a.btn.btn-primary.btn-large{:href => random_path, :style => "margin-bottom: 40px;margin-top: 20px;width: 666px;height: 19px;"} Show me More Covers!

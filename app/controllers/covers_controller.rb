@@ -7,7 +7,13 @@ class CoversController < ApplicationController
   end
 
   def search
-    @covers = Photo.search_tank(params[:query])
+    @covers = Photo.search_tank(params[:query], :page => params[:page], :per_page => params[:per_page])
+    if @covers.count == 0
+      # Most Popular
+      @covers = Photo.search(:page => params[:page], :per_page => params[:per_page], :sorting => 'counter DESC, updated_at DESC, id DESC')
+      @most_popular = true
+      flash[:notice] = "Sorry, we couldn't find any covers for \"#{params[:query]}\", but maybe you like these :)"
+    end
     @tags   = Photo.relevant_tags
 
     render :index
@@ -32,6 +38,15 @@ class CoversController < ApplicationController
     @title = @current_tag.titleize if @current_tag
     
     render :index
+  end
+
+  def random
+    @covers = [Photo.random]
+    14.times do |foo|
+      @covers << Photo.random
+    end
+    @tags = Photo.relevant_tags
+
   end
 
   def sharing_url

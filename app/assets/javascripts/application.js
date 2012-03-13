@@ -33,9 +33,16 @@ $(document).ready( function(){
       document.cookie = 'hide_countdown=true; expires='+ date +'; path=/'
     })
     
-    $('#search-form').submit(function(){
-    	document.location = "http://www.pickura.com/search/" + $('#query').val();
-    	// document.location = "http://localhost:3000/search/" + $('#query').val();
-    	return false;
+    $('#query').keypress(function(e){
+      if(e.which == 13){
+        if (location.href.indexOf('www.pickura.com') == -1) {
+          document.location = "http://localhost:3000/search/"  + $('#query').val();
+        } else {
+          document.location = "http://www.pickura.com/search/" + $('#query').val();
+        }
+        e.preventDefault();
+        return false;
+      }
     })
+
 });      

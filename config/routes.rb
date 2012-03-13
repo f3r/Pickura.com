@@ -22,6 +22,7 @@ Covers::Application.routes.draw do
   match 'gallery/:sharing_url'  => 'covers#sharing_url',    :as => :gallery_sharing_url
   match 'most-popular'          => 'covers#most_popular',   :as => :gallery_popular
   match 'editors-pick'          => 'covers#editor_pick',    :as => :gallery_editor_pick
+  match 'random'                => 'covers#random',         :as => :random
   match 'cover/:id/download'    => 'editor#download',       :as => :download_cover
   match 'cover/:id/upload'      => 'editor#upload',         :as => :upload_cover
   match 'cover/premium'         => 'covers#premium'
