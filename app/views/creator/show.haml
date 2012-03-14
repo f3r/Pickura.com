@@ -7,12 +7,17 @@
       .profile_pic
         .image
           = image_tag current_user.avatar.url, :id => 'user_avatar'#, :height => 125, :width => 125
-      
-  = #render :partial => 'choose_photos'
-  
-  %a#upload_button.btn.btn-primary.btn-large{:href => '#upload_modal', 'data-loading-text' => 'Uploading...', 'data-toggle' => 'modal'}
-    %i{:class => "icon-upload icon-white"}
-    Upload to Facebook
+
+.editor
+  #actions{:style => "margin-left: 44px; background-color: white; width: 850px;"}
+    - if !user_signed_in?
+      %a#download_button.btn.btn-primary.btn-large{:href => "#{user_omniauth_authorize_path(:facebook)}", 'data-loading-text' => 'Authenticating with Facebook...'}
+        %i{:class => "icon-picture icon-white"}
+        Upload to Facebook
+    - else
+      %a#upload_button.btn.btn-primary.btn-large{:href => '#upload_modal', 'data-loading-text' => 'Uploading...', 'data-toggle' => 'modal'}
+        %i{:class => "icon-upload icon-white"}
+        Upload to Facebook
 
 #upload_modal.modal.hide
   .modal-header

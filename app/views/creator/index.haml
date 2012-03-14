@@ -34,7 +34,12 @@
         .photo
           .name= model[:title]
           .img{:style => "margin-left:35px"}
-            = link_to image_tag("creator/" + model[:sample], :class => 'cover'), generate_cover_path(:model => model[:name]), :class => 'generate-link'
+            = image_tag("creator/" + model[:sample], :class => 'cover')
+            .coming-soon.hover
+              .msg 
+                Click 
+                = image_tag("preview_new_button.png")
+                from any cover in our Gallery!
 
         - model = {:title => 'Museum Wall', :name => :soon, :sample => 'museum_wall.png'}
         .photo
@@ -42,7 +47,7 @@
           .img{:style => "margin-left:35px"}
             = link_to image_tag("creator/" + model[:sample], :class => 'cover'), '#'
             .coming-soon.hover
-              .msg Coming soon...
+              .msg Template Coming soon...
       
         - model = {:title => 'Stack of Polaroids', :name => :soon, :sample => 'polaroid_stack.png'}
         .photo
@@ -50,7 +55,7 @@
           .img{:style => "margin-left:35px"}
             = link_to image_tag("creator/" + model[:sample], :class => 'cover'), '#'
             .coming-soon.hover
-              .msg Coming soon...
+              .msg Template Coming soon...
               
 #generating_modal.modal.hide
   .modal-header

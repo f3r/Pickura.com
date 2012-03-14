@@ -23,7 +23,7 @@
 
 $(document).ready( function(){
 
-    var date = new Date(2012,02,15);
+    var date = new Date(2012,02,22);
 
     $("#time").countdown({
       "date" : date

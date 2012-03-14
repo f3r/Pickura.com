@@ -2,7 +2,7 @@
   .actions
     %a#download_button.btn.btn-primary.btn-large{:href => "#{user_omniauth_authorize_path(:facebook)}", 'data-loading-text' => 'Authenticating with Facebook...'}
       %i{:class => "icon-picture icon-white"}
-      Add to Template
+      Preview with our new Template
 
 
     %a#download_button.btn.btn-primary.btn-large{:href => "#{user_omniauth_authorize_path(:facebook)}", 'data-loading-text' => 'Authenticating with Facebook...'}
@@ -18,7 +18,7 @@
     -#/ = link_to 'Customize', editor_path(@cover), :class => 'btn btn-info btn-large'
     %a#download_button.btn.btn-primary.btn-large{:href => generate_cover_path(:model => :echo, :background => @cover.id), 'data-loading-text' => 'Authenticating with Facebook...', :class => 'generate-link'}
       %i{:class => "icon-picture icon-white"}
-      Add to Template
+      Preview with our new Template
     %a#download_button.btn.btn-primary.btn-large{:href => "#{download_cover_url}", 'data-loading-text' => 'Downloading...'}
       %i{:class => "icon-download-alt icon-white"}
       Download
