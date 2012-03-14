@@ -4,7 +4,7 @@
   = javascript_include_tag "http://w.sharethis.com/button/buttons.js"
   :javascript
     stLight.options({publisher: "ur-cea037fd-e637-a2ad-7782-f86cf3376519"});
-
+    
 .row
   .span9.pull-right.show_cover
     .gallery_list
@@ -26,7 +26,7 @@
             .span8.description
               = "‟#{@cover.description}”"
         .row
-          .span6.pull-right
+          .span7.pull-right
             = render :partial => 'editor/actions'
 
     .social_sharing    
@@ -39,3 +39,19 @@
       .fb-comments{"data-href"=>permalink(@cover), "data-num-posts"=>"2", "data-width"=>"668", "data-colorscheme"=>"dark"}
   .span3.pull-left
     = render 'tags'
+
+#generating_modal.modal.hide
+  .modal-header
+    %a.close{'data-dismiss' => 'modal'} x
+    %h2 Generating
+  .modal-body
+    .row-fluid
+      .msg.span8
+        %p We are currently generating your new custom cover
+        %p In the meantime, why not Like us on Facebook?
+        .upload-bar{:style => "text-align:center"}
+          = image_tag 'loading30.gif'
+      .modal-right.span4
+        %h3 Like us:
+        .fb-widget
+          .fb-like{"data-href"=> "http://www.pickura.com","data-send"=>"false", "data-width"=>"100", 'data-layout' => 'box_count', "data-show-faces"=>"false", "data-font"=>"lucida grande"}

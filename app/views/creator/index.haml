@@ -1,28 +1,53 @@
 #creator
   .title_creator
     CREATE A CUSTOM Facebook Cover
+  
+  / .row
+  /   .span10.offset1
+  /     #myCarousel.carousel
+  /       / Carousel items
+  /       .carousel-inner
+  /         .active.item
+  /           - model = {:title => 'Echo', :name => :echo, :sample => 'echo.png'}
+  /           = link_to image_tag("creator/" + model[:sample], :class => 'cover'), generate_cover_path(:model => model[:name]), :class => 'generate-link'
+  /           .carousel-caption 
+  /             %h3{:style => "color: #FFF"} Echo
+  /         .item
+  /           - model = {:title => 'Museum Wall', :name => :soon, :sample => 'museum_wall.png'}
+  /           = link_to image_tag("creator/" + model[:sample], :class => 'cover'), '#'
+  /           .carousel-caption 
+  /             %h3{:style => "color: #FFF"} Museum Wall
+  /         .item
+  /           - model = {:title => 'Stack of Polaroids', :name => :soon, :sample => 'polaroid_stack.png'}
+  /           = link_to image_tag("creator/" + model[:sample], :class => 'cover'), '#'
+  /           .carousel-caption 
+  /             %h3{:style => "color: #FFF"} Stack of Polaroids
+  /       / Carousel nav
+  /       %a.carousel-control.left{ :href=>"#myCarousel", "data-slide"=>"prev"} &lsaquo;
+  /       %a.carousel-control.right{:href=>"#myCarousel", "data-slide"=>"next"} &rsaquo;
+
   .row
     .span10.offset1
       .gallery_list
         -# @models.each do |model|
-        - model = {:title => 'Echo', :name => :echo, :sample => 'echo.jpg'}
+        - model = {:title => 'Echo', :name => :echo, :sample => 'echo.png'}
         .photo
           .name= model[:title]
-          .img
+          .img{:style => "margin-left:35px"}
             = link_to image_tag("creator/" + model[:sample], :class => 'cover'), generate_cover_path(:model => model[:name]), :class => 'generate-link'
 
-        - model = {:title => 'Museum Wall', :name => :soon, :sample => 'array.png'}
+        - model = {:title => 'Museum Wall', :name => :soon, :sample => 'museum_wall.png'}
         .photo
           .name= model[:title]
-          .img
+          .img{:style => "margin-left:35px"}
             = link_to image_tag("creator/" + model[:sample], :class => 'cover'), '#'
             .coming-soon.hover
               .msg Coming soon...
       
-        - model = {:title => 'Stack of Polaroids', :name => :soon, :sample => 'stack.jpg'}
+        - model = {:title => 'Stack of Polaroids', :name => :soon, :sample => 'polaroid_stack.png'}
         .photo
           .name= model[:title]
-          .img
+          .img{:style => "margin-left:35px"}
             = link_to image_tag("creator/" + model[:sample], :class => 'cover'), '#'
             .coming-soon.hover
               .msg Coming soon...

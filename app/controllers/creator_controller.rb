@@ -15,7 +15,7 @@ class CreatorController < ApplicationController
     when 'echo'
       #@cover = CustomCover.where(:user_id => current_user.id).first
       unless @cover
-        cover_image = Collage.echo(current_user)
+        cover_image = Collage.echo(current_user, params[:background])
         @cover = CustomCover.create!(:user => current_user, :source => open(cover_image))
       end
       redirect_to creator_cover_path(@cover)

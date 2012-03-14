@@ -46,6 +46,7 @@ class CoversController < ApplicationController
     14.times do |foo|
       @covers << Photo.random
     end
+    @random = true
     @tags = Photo.relevant_tags
 
   end

@@ -25,29 +25,34 @@ class Collage
     cat.write(file_path)
   end
 
-  def self.echo(user)
+  def self.echo(user,background)
     require 'RMagick'
     include Magick
 
     # Download profile picture
     photo_url = user.avatar.url
-    photo = open(URI.parse(photo_url))
-    image = ImageList.new
+    photo     = open(URI.parse(photo_url))
+    image     = ImageList.new
     image.from_blob(photo.read)
 
     image.scale!(125, 125)
 
-    #cover = ImageList.new("#{Rails.root}/public/images/collage/background.png")
-    cover = Magick::Image.new(WIDTH, HEIGHT)
-    rgb = '#000'
-    cover = cover.colorize(1,1,1, rgb)
+    if background
+      photo  = open(URI.parse(Photo.find(background).source.url))
+      cover  = ImageList.new
+      cover.from_blob(photo.read)
+    else
+      cover = Magick::Image.new(WIDTH, HEIGHT)
+      rgb = '#000'
+      cover = cover.colorize(1,1,1, rgb)
+    end
 
     image_with_border = add_border(image)
 
     5.downto(0).each do |i|
       y = HEIGHT - 125 - 20 - i*40
       x = i*60 + 85
-      #image_with_border.opacity = Magick::MaxRGB * 0.1 * i
+      image_with_border.opacity = Magick::MaxRGB * 0.1 * i
       cover.composite!(image_with_border, x, y, OverCompositeOp)
     end
 

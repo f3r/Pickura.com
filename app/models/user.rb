@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
     else # Create a user with a stub password.
       picture_url = access_token.info.image.gsub('square', 'large')
       User.create!(
-        :email => data.email, :password => Devise.friendly_token[0,20],
+        :email => data.email,
+        :password => Devise.friendly_token[0,20],
         :remote_avatar_url => picture_url, :token => access_token.credentials.token
       )
     end

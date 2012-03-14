@@ -5,6 +5,9 @@
       = link_to "Most Popular", gallery_popular_path, :title => "Most popular Facebook covers"
     %li.tag{:class => @editor_pick? 'active' : ''}
       = link_to "Editor's Pick", gallery_editor_pick_path, :title => "Our choices for your timeline"
+    %li.tag{:class => @random? 'active' : ''}
+      = link_to "Random Covers", random_path, :title => "Random images. Never get bored!"
+      
   .tag_title Gallery Tags
   %ul.gallery_tags.tags
     - @tags.each do |tag|
