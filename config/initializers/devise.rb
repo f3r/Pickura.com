@@ -211,9 +211,9 @@ Devise.setup do |config|
   # require "omniauth-facebook"
   access_opts = {:scope => 'email,offline_access,publish_stream,user_photos,photo_upload'}
   if Rails.env.production?
-    config.omniauth :facebook, "331426256899594", "dfe2b9e4996748a26d708a313c47ab6d", access_opts
+    config.omniauth :facebook, "PRODUCTION KEY", "PRODUCTION SECRET", access_opts
   else
-    config.omniauth :facebook, "210974742333678", "d30ea46bb1474dcba4e447f9288ee107", access_opts
+    config.omniauth :facebook, "DEV KEY", "DEV SECRET", access_opts
   end
 
   # Add a new OmniAuth provider. Check the wiki for more information on setting

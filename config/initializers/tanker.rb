@@ -1,1 +1,1 @@
-Covers::Application.config.index_tank_url = 'http://:xk2aa0cm0EcczD@6ukx.api.searchify.com'
+Covers::Application.config.index_tank_url = 'YOUR SEARCHIFY KEY'
